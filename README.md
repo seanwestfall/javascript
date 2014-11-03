@@ -21,6 +21,8 @@ By Sean Westfall
   1. [Native & Host Objects](#native)
   1. [Comments](#comments)
   1. [One Language Code](#language)
+  1. [When to Use jQuery](#whentousejquery)
+  1. [jQuery Style Guide](#jquerystyle)
   1. [Types](#types)
   1. [Objects](#objects)
   1. [Arrays](#arrays)
