@@ -1,12 +1,15 @@
 javascript
 ==========
 
-A Practical Style Guide to Everyday Javascript. By Sean Westfall
+A Practical Style Guide to Everyday Javascript.
 
 Here in lies a guide to writing principled, consistent, and idiomatic JavaScript.
 
+By Sean Westfall
+
 ## Table of Contents
 
+  1. [Resources] (#Resources)
   1. [Whitespace](#whitespace)
   1. [Beautiful Syntax](#spacing)
   1. [Type Checking (Courtesy jQuery Core Style Guidelines)](#type)
@@ -48,4 +51,9 @@ Here in lies a guide to writing principled, consistent, and idiomatic JavaScript
   1. [Contributors](#contributors)
   1. [License](#license)
 
-## Types
+## Resources
+
+# Official Documentation
+### [Annotated ECMAScript 5.1](http://es5.github.com/)
+### [EcmaScript Language Specification, 5.1 Edition](http://ecma-international.org/ecma-262/5.1/)
+### [EcmaScript Language Specification, ECMA-262 6th Edition *Draft*](https://people.mozilla.org/~jorendorff/es6-draft.html)
