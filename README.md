@@ -234,6 +234,7 @@ typeof variable === "boolean"
 Object:
 typeof variable === "object"
 ````
+````
 Array:
 Array.isArray( arrayLikeObject )
 ````
