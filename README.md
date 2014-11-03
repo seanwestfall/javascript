@@ -65,6 +65,7 @@ By Sean Westfall
 // 2.B.1.2
 // Using only one `var` per scope (function) promotes readability
 // and keeps your declaration list free of clutter (also saves a few keystrokes)
+````
 // Bad
 var foo = "";
 var bar = "";
@@ -80,11 +81,11 @@ var // Comment on these
 foo = "",
 bar = "",
 quux;
-
+````
 // 2.B.1.3
 // var statements should always be in the beginning of their respective scope (function).
 
-
+````
 // Bad
 function foo() {
 
@@ -101,11 +102,11 @@ function foo() {
 
   // all statements after the variables declarations.
 }
-
+````
 ## ES6 Standard 
 // 2.B.1.4
 // const and let, from ECMAScript 6, should likewise be at the top of their scope (block).
-
+````
 // Bad
 function foo() {
   let foo,
@@ -123,8 +124,9 @@ function foo() {
     // statements
   }
 }
-
+````
 // 2.B.2.1
+````
 // Named Function Declaration
 function foo( arg1, argN ) {
 
@@ -132,9 +134,10 @@ function foo( arg1, argN ) {
 
 // Usage
 foo( arg1, argN );
-
+````
 
 // 2.B.2.2
+````
 // Named Function Declaration
 function square( number ) {
   return number * number;
@@ -151,9 +154,10 @@ function square( number, callback ) {
 square( 10, function( square ) {
   // callback statements
 });
-
+````
 
 // 2.B.2.3
+````
 // Function Expression
 var square = function( number ) {
   // Return something valuable and relevant
@@ -170,8 +174,9 @@ var factorial = function factorial( number ) {
 
   return number * factorial( number - 1 );
 };
-
+````
 // 2.B.2.4
+````
 // Constructor Declaration
 function FooBar( options ) {
 
@@ -183,11 +188,13 @@ var fooBar = new FooBar({ a: "alpha" });
 
 fooBar.options;
 // { a: "alpha" }
+````
 
 C. Exceptions, Slight Deviations
 
 // 2.C.1.1
 // Functions with callbacks
+````
 foo(function() {
   // Note there is no extra space between the first paren
   // of the executing function call and the word "function"
@@ -195,8 +202,9 @@ foo(function() {
 
 // Function accepting an array, no space
 foo([ "alpha", "beta" ]);
-
+````
 // 2.C.1.2
+````
 // Function accepting an object, no space
 foo({
   a: "alpha",
@@ -210,10 +218,12 @@ foo("bar");
 if ( !("foo" in obj) ) {
 
 }
-
+````
 E. Quotes
 
-// Whether you prefer single or double shouldn't matter, there is no difference in how JavaScript parses them. What ABSOLUTELY // MUST be enforced is consistency. Never mix quotes in the same project. Pick one style and stick with it.
+// Whether you prefer single or double shouldn't matter, there is no difference in how JavaScript parses them. What ABSOLUTELY MUST be enforced is consistency. Never mix quotes in the same project. Pick one style and stick with it.
+
+The perfer style of this author is to use single double qoutes of all strings, and single qoutes for internal qoutes.
 
 F. End of Lines and Empty Lines
 
