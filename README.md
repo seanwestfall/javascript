@@ -7,6 +7,17 @@ Principles of Writing Consistent, Idiomatic JavaScript
 
 ## Table of Contents
 
+ * [Whitespace](#whitespace)
+ * [Beautiful Syntax](#spacing)
+ * [Type Checking (Courtesy jQuery Core Style Guidelines)](#type)
+ * [Conditional Evaluation](#cond)
+ * [Practical Style](#practical)
+ * [Naming](#naming)
+ * [Misc](#misc)
+ * [Native & Host Objects](#native)
+ * [Comments](#comments)
+ * [One Language Code](#language)
+
   1. [Types](#types)
   1. [Objects](#objects)
   1. [Arrays](#arrays)
