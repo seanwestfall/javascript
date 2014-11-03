@@ -1,23 +1,22 @@
 javascript
 ==========
 
-style guide to javascript
+A Practical Style Guide to Everyday Javascript. By Sean Westfall
 
-Principles of Writing Consistent, Idiomatic JavaScript
+Here in lies a guide to writing principled, consistent, and idiomatic JavaScript.
 
 ## Table of Contents
 
- * [Whitespace](#whitespace)
- * [Beautiful Syntax](#spacing)
- * [Type Checking (Courtesy jQuery Core Style Guidelines)](#type)
- * [Conditional Evaluation](#cond)
- * [Practical Style](#practical)
- * [Naming](#naming)
- * [Misc](#misc)
- * [Native & Host Objects](#native)
- * [Comments](#comments)
- * [One Language Code](#language)
-
+  1. [Whitespace](#whitespace)
+  1. [Beautiful Syntax](#spacing)
+  1. [Type Checking (Courtesy jQuery Core Style Guidelines)](#type)
+  1. [Conditional Evaluation](#cond)
+  1. [Practical Style](#practical)
+  1. [Naming](#naming)
+  1. [Misc](#misc)
+  1. [Native & Host Objects](#native)
+  1. [Comments](#comments)
+  1. [One Language Code](#language)
   1. [Types](#types)
   1. [Objects](#objects)
   1. [Arrays](#arrays)
