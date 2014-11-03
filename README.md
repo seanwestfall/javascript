@@ -9,7 +9,8 @@ By Sean Westfall
 
 ## Table of Contents
 
-  1. [Resources] (#Resources)
+  1. [Resources](#Resources)
+  1. [Using Strict](#usestrict)
   1. [Whitespace](#whitespace)
   1. [Beautiful Syntax](#spacing)
   1. [Type Checking (Courtesy jQuery Core Style Guidelines)](#type)
