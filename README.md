@@ -5,6 +5,8 @@ A Practical Style Guide to Everyday Javascript.
 
 Here in lies a guide to writing principled, consistent, and idiomatic JavaScript.
 
+For the most part this guide contains a compliation of style guides from various online and book sources. Please refer to the resources 
+
 By Sean Westfall
 
 ## Table of Contents
@@ -20,7 +22,8 @@ By Sean Westfall
   1. [Misc](#misc)
   1. [Native & Host Objects](#native)
   1. [Comments](#comments)
-  1. [Bitwise Operators](#bitwise) 
+  1. [Bitwise Operators](#bitwise)
+  1. [Things to Consider for Production](#production) 
   1. [ES6 Modules](#modules)
   1. [One Language Code](#language)
   1. [When to Use jQuery](#whentousejquery)
@@ -112,6 +115,9 @@ bar[0] = 9;
 
 ## Syntax
 ###Objects
+* Object constructors don't have the same problems, but for readability and consistency object literals should be used.
+* Should be written as:
+
 ````
 // bad
 var item = new Object();
@@ -120,7 +126,57 @@ var item = new Object();
 var item = {};
 ````
 
+````
+// bad
+var o = new Object();
+
+var o2 = new Object();
+o2.a = 0;
+o2.b = 1;
+o2.c = 2;
+o2['strange key'] = 3;
+
+// good
+var o = {};
+
+var o2 = {
+  a: 0,
+  b: 1,
+  c: 2,
+  'strange key': 3
+};
+````
+
 ###Arrays
+* Use Array and Object literals instead of Array and Object constructors.
+* Array constructors are error-prone due to their arguments.
+* Because of this, if someone changes the code to pass 1 argument instead of 2 arguments, the array might not have the expected length.
+* To avoid these kinds of weird cases, always use the more readable array literal.
+````
+// bad
+// Length is 3.
+var a1 = new Array(x1, x2, x3);
+
+// Length is 2.
+var a2 = new Array(x1, x2);
+
+// If x1 is a number and it is a natural number the length will be x1.
+// If x1 is a number but not a natural number this will throw an exception.
+// Otherwise the array will have one element with x1 as its value.
+var a3 = new Array(x1);
+
+// Length is 0.
+var a4 = new Array();
+
+// good
+var a = [x1, x2, x3];
+var a2 = [x1, x2];
+var a3 = [x1];
+var a4 = [];
+````
+* 
+
+
 ````
 // bad
 var items = new Array();
@@ -146,6 +202,44 @@ for (i = 0; i < len; i++) {
 // good
 itemsCopy = items.slice();
 ````
+
+### Loops
+# for-in loops are often incorrectly used to loop over the elements in an Array. This is however very error prone because it does not loop from 0 to length - 1 but over all the present keys in the object and its prototype chain. Here are a few cases where it fails:
+````
+\\ bad
+function printArray(arr) {
+  for (var key in arr) {
+    print(arr[key]);
+  }
+}
+
+printArray([0,1,2,3]);  // This works.
+
+var a = new Array(10);
+printArray(a);  // This is wrong.
+
+a = document.getElementsByTagName('*');
+printArray(a);  // This is wrong.
+
+a = [0,1,2,3];
+a.buhu = 'wine';
+printArray(a);  // This is wrong again.
+
+a = new Array;
+a[3] = 3;
+printArray(a);  // This is wrong again.
+
+\\ good
+function printArray(arr) {
+  var l = arr.length;
+  for (var i = 0; i < l; i++) {
+    print(arr[i]);
+  }
+}
+\\ or the forEach is also typically faster and cleaner without having to worry about an index.
+````
+
+
 
 ### Functions
 
@@ -351,6 +445,22 @@ function foo() {
   }
 }
 ````
+* do not use function declarations within blocks
+* While most script engines support Function Declarations within blocks it is not part of ECMAScript (see ECMA-262, clause 13 and 14). Worse implementations are inconsistent with each other and with future EcmaScript proposals. ECMAScript only allows for Function Declarations in the root statement list of a script or function. Instead use a variable initialized with a Function Expression to define a function within a block:
+````
+\\ bad
+if (x) {
+  function foo() {}
+}
+\\ good
+if (x) {
+  var foo = function() {};
+}
+````
+
+
+
+
 // 2.B.2.1
 ````
 // Named Function Declaration
@@ -717,6 +827,10 @@ var fullName = 'Bob ' + this.lastName;
 * Strings longer than 80 characters should be written across multiple lines using string concatenation. (and maintain indentation)
 
 * If overused, long strings with concatenation could impact performance. jsPerf & Discussion
+
+* The whitespace at the beginning of each line can't be safely stripped at compile time; whitespace after the slash will result in tricky errors; and while most script engines support this, it is not part of ECMAScript.
+
+Use string concatenation instead:
 ````
 // bad
 var errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
@@ -726,11 +840,26 @@ var errorMessage = 'This is a super long error that was thrown because \
                     of Batman. When you stop to think about how Batman had anything to do \
                     with this, you would get nowhere \
                     fast.';
+                    
+// bad
+var myString = 'A rather long string of English text, an error message \
+                actually that just keeps going and going -- an error \
+                message to make the Energizer bunny blush (right through \
+                those Schwarzenegger shades)! Where was I? Oh yes, \
+                you\'ve got an error and all the extraneous whitespace is \
+                just gravy.  Have a nice day.';
 
 // good
 var errorMessage = 'This is a super long error that was thrown because ' +
                    'of Batman. When you stop to think about how Batman had anything to do ' +
                    'with this, you would get nowhere fast.';
+// good
+var myString = 'A rather long string of English text, an error message ' +
+    'actually that just keeps going and going -- an error ' +
+    'message to make the Energizer bunny blush (right through ' +
+    'those Schwarzenegger shades)! Where was I? Oh yes, ' +
+    'you\'ve got an error and all the extraneous whitespace is ' +
+    'just gravy.  Have a nice day.';
 ````
 * When programmatically building up a string, use Array#join instead of string concatenation. Mostly for IE
 ````
@@ -804,6 +933,14 @@ var isJedi = getProp('jedi');
 ````
 
 ### Variables
+* Use NAMES_LIKE_THIS for constant values.
+* Use @const to indicate a constant (non-overwritable) pointer (a variable or property).
+* Never use the const keyword as it's not supported in Internet Explorer.
+
+*If a value is intended to be constant and immutable, it should be given a name in CONSTANT_VALUE_CASE. ALL_CAPS additionally implies @const (that the value is not overwritable).
+Primitive types (number, string, boolean) are constant values.
+Objects' immutability is more subjective — objects should be considered immutable only if they do not demonstrate observable state change. This is not enforced by the compiler.
+
 * Always use var to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace.
 ````
 // bad
@@ -1117,6 +1254,32 @@ function Calculator() {
 }
 ````
 
+The @const annotation on a variable or property implies that it is not overwritable. This is enforced by the compiler at build time. This behavior is consistent with the const keyword (which we do not use due to the lack of support in Internet Explorer).
+
+A @const annotation on a method additionally implies that the method cannot not be overridden in subclasses.
+
+A @const annotation on a constructor implies the class cannot be subclassed (akin to final in Java).
+````
+\\ good
+/**
+ * Request timeout in milliseconds.
+ * @type {number}
+ */
+goog.example.TIMEOUT_IN_MILLISECONDS = 60;
+
+/**
+ * Map of URL to response string.
+ * @const
+ */
+MyClass.fetchedUrlCache_ = new goog.structs.Map();
+/**
+ * Class that cannot be subclassed.
+ * @const
+ * @constructor
+ */
+sloth.MyFinalClass = function() {};
+````
+
 ## Whitespaces
 * Use soft tabs set to 2 spaces. Never mix tabs and spaces.
 ````
@@ -1238,7 +1401,57 @@ var leds = stage.selectAll('.led')
 })();
 ````
 
+* Example of what happens when you don't use a semicolon
+````
+// 1.
+MyClass.prototype.myMethod = function() {
+  return 42;
+}  // No semicolon here.
+
+(function() {
+  // Some initialization code wrapped in a function to create a scope for locals.
+})();
+
+
+var x = {
+  'i': 1,
+  'j': 2
+}  // No semicolon here.
+
+// 2.  Trying to do one thing on Internet Explorer and another on Firefox.
+// I know you'd never write code like this, but throw me a bone.
+[ffVersion, ieVersion][isIE]();
+
+
+var THINGS_TO_EAT = [apples, oysters, sprayOnCheese]  // No semicolon here.
+
+// 3. conditional execution a la bash
+-1 == resultOfOperation() || die();
+````
+1. JavaScript error - first the function returning 42 is called with the second function as a parameter, then the number 42 is "called" resulting in an error.
+2. You will most likely get a 'no such property in undefined' error at runtime as it tries to call x[ffVersion, ieVersion][isIE]().
+3. die is always called since the array minus 1 is NaN which is never equal to anything (not even if resultOfOperation() returns NaN) and THINGS_TO_EAT gets assigned the result of die().
+
+Why this happened:
+* JavaScript requires statements to end with a semicolon, except when it thinks it can safely infer their existence. In each of these examples, a function declaration or object or array literal is used inside a statement. The closing brackets are not enough to signal the end of the statement. Javascript never ends a statement if the next token is an infix or bracket operator.
+
+This has really surprised people, so make sure your assignments end with semicolons.
+
+* Semicolons should be included at the end of function expressions, but not at the end of function declarations. The distinction is best illustrated with an example:
+````
+var foo = function() {
+  return true;
+};  // semicolon here.
+
+function foo() {
+  return true;
+}  // no semicolon here.
+````
 ## Naming
+* In general, use functionNamesLikeThis, variableNamesLikeThis, ClassNamesLikeThis, EnumNamesLikeThis, methodNamesLikeThis, CONSTANT_VALUES_LIKE_THIS, foo.namespaceNamesLikeThis.bar, and filenameslikethis.js.
+* Private properties and methods should be named with a trailing underscore.
+* Protected properties and methods should be named without a trailing underscore (like public ones).
+
 ````
 // 6.A.3.1
 // Naming strings
@@ -1374,4 +1587,7 @@ function Device( opts ) {
   }, opts.freq || 100 );
 }
 ````
+
+## Production Topics
+* Modifying builtins like Object.prototype and Array.prototype are strictly forbidden. Modifying other builtins like Function.prototype is less dangerous but still leads to hard to debug issues in production and should be avoided.
 
