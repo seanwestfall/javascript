@@ -204,7 +204,7 @@ itemsCopy = items.slice();
 ````
 
 ### Loops
-# for-in loops are often incorrectly used to loop over the elements in an Array. This is however very error prone because it does not loop from 0 to length - 1 but over all the present keys in the object and its prototype chain. Here are a few cases where it fails:
+for-in loops are often incorrectly used to loop over the elements in an Array. This is however very error prone because it does not loop from 0 to length - 1 but over all the present keys in the object and its prototype chain. Here are a few cases where it fails:
 ````
 \\ bad
 function printArray(arr) {
