@@ -1452,7 +1452,6 @@ function foo() {
 * Private properties and methods should be named with a trailing underscore.
 * Protected properties and methods should be named without a trailing underscore (like public ones).
 
-````
 // 6.A.3.1
 // Naming strings
 ````
