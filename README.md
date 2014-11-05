@@ -5,7 +5,7 @@ A Practical Style Guide to Everyday Javascript.
 
 Here in lies a guide to writing principled, consistent, and idiomatic JavaScript.
 
-For the most part this guide contains a compliation of style guides from various online and book sources. Please refer to the resources 
+For the most part this guide contains a compliation of style guides from various online and book sources. Please refer to the resources section for the list of all sources for this document. I also used the MLA style for citations. Please refer to the MLA style guide for an explanation of how MLA style citations work.
 
 By Sean Westfall
 
