@@ -45,7 +45,7 @@ By Sean Westfall
 8. [Comments]
 9. [Commonly Used Objects]
      + Regular Expression
-     + Dates
+     + Date
      + Math
      + Promises
 10. [Generators ES6] 
