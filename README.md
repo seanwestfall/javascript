@@ -131,6 +131,11 @@ By Sean Westfall
 ### [EcmaScript Language Specification, 5.1 Edition](http://ecma-international.org/ecma-262/5.1/)
 ### [EcmaScript Language Specification, ECMA-262 6th Edition *Draft*](https://people.mozilla.org/~jorendorff/es6-draft.html)
 
+# Essential Reading
++ http://msdn.microsoft.com/en-us/library/ie/yek4tbz0(v=vs.94).aspx
++ https://developer.mozilla.org/en-US/docs/Web/JavaScript
++ http://contribute.jquery.org/style-guide/js/
+
 # JavaScript Books Worth Reading:
 + Secrets of the JavaScript Ninja by John Resig and Bear Bibeault
 + JavaScript: The Good Parts by Douglas Crockford
