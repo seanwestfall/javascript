@@ -15,7 +15,7 @@ By Sean Westfall
 
 ## Table of Contents preliminary
 
-0. [Official Documentation]
+0. [Official Documentation](#a)
 	+ ES 5 Annotated
 	+ ES 5 Official Spec
 	+ ES 6.1 Draft
