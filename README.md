@@ -69,6 +69,10 @@ By Sean Westfall
 20. [Performance and Memory]
 21. [Security]
 22. [Considerations for Production]
+23. [Considerations on the JS Engine]
+      + V8
+      + SpiderMonkey
+      + IE
 23. [IE Issues and Compatibility]
 24. [License]
 25. [Bibliography]
@@ -154,6 +158,7 @@ By Sean Westfall
 + https://github.com/rwaldron/idiomatic.js/
 + https://github.com/airbnb/javascript
 + https://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml
++ http://contribute.jquery.org/style-guide/js/ (The jQuery style guide also contains a general JS style guide)
 
 ## Types:
 Primitives: When you access a primitive type you work directly on its value
