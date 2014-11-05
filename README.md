@@ -76,10 +76,10 @@ By Sean Westfall
 + JavaScript Patterns by Stoyan Stefanov
 + Functional JavaScript: Introducing Functional Programming with Underscore.js by Michael Fogus
 
-# JavaScript Blogs Worth Reading:
-http://perfectionkills.com/
-http://raganwald.com/
-http://jlongster.com/
+# JavaScript Blogs Worth Mentioning:
++ http://perfectionkills.com/
++ http://raganwald.com/
++ http://jlongster.com/
 
 # Other Awesome Styles Guides You Should Read
 https://github.com/rwaldron/idiomatic.js/
