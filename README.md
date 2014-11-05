@@ -82,9 +82,9 @@ By Sean Westfall
 + http://jlongster.com/
 
 # Other Awesome Styles Guides You Should Read
-https://github.com/rwaldron/idiomatic.js/
-https://github.com/airbnb/javascript
-https://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml
++ https://github.com/rwaldron/idiomatic.js/
++ https://github.com/airbnb/javascript
++ https://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml
 
 ## Types:
 Primitives: When you access a primitive type you work directly on its value
