@@ -108,7 +108,7 @@ Complex: When you access a complex type you work on a reference to its value
  * array
  * function
  * symbol (ES6)
-````
+````javascript
 var foo = [1, 2],
     bar = foo;
 
@@ -120,7 +120,7 @@ bar[0] = 9;
 * Object constructors don't have the same problems, but for readability and consistency object literals should be used.
 * Should be written as:
 
-````
+````javascript
 // bad
 var item = new Object();
 
@@ -128,7 +128,7 @@ var item = new Object();
 var item = {};
 ````
 
-````
+````javascript
 // bad
 var o = new Object();
 
@@ -154,7 +154,7 @@ var o2 = {
 * Array constructors are error-prone due to their arguments.
 * Because of this, if someone changes the code to pass 1 argument instead of 2 arguments, the array might not have the expected length.
 * To avoid these kinds of weird cases, always use the more readable array literal.
-````
+````javascript
 // bad
 // Length is 3.
 var a1 = new Array(x1, x2, x3);
@@ -179,21 +179,21 @@ var a4 = [];
 * 
 
 
-````
+````javascript
 // bad
 var items = new Array();
 
 // good
 var items = [];
 ````
-````
+````javascript
 var someStack = [];
 // bad
 someStack[someStack.length] = 'abracadabra';
 // good
 someStack.push('abracadabra');
 ````
-````
+````javascript
 var len = items.length,
     itemsCopy = [],
     i;
@@ -207,7 +207,7 @@ itemsCopy = items.slice();
 
 ### Loops
 for-in loops are often incorrectly used to loop over the elements in an Array. This is however very error prone because it does not loop from 0 to length - 1 but over all the present keys in the object and its prototype chain. Here are a few cases where it fails:
-````
+````javascript
 \\ bad
 function printArray(arr) {
   for (var key in arr) {
@@ -248,7 +248,7 @@ function printArray(arr) {
 // 2.B.1.2
 // Using only one `var` per scope (function) promotes readability
 // and keeps your declaration list free of clutter (also saves a few keystrokes)
-````
+````javascript
 // Bad
 var foo = "";
 var bar = "";
@@ -266,7 +266,7 @@ bar = "",
 quux;
 ````
 * Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
-````
+````javascript
 // bad
 var i, len, dragonball,
     items = getItems(),
@@ -287,7 +287,7 @@ var items = getItems(),
 ````
 
 * Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
-````
+````javascript
 // bad
 function() {
   test();
@@ -344,7 +344,7 @@ function() {
 ````
 
 * Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
-````
+````javascript
 // anonymous function expression
 var anonymous = function() {
   return true;
@@ -361,7 +361,7 @@ var named = function named() {
 })();
 ````
 * Never name a parameter arguments, this will take precedence over the arguments object that is given to every function scope. 'arguments' is a reserved word in all browsers.
-````
+````javascript
 // bad
 function nope(name, options, arguments) {
   // ...stuff...
@@ -373,7 +373,7 @@ function yup(name, options, args) {
 }
 ````
 * ECMA-262 defines a block as a list of statements. A function declaration is not a statement.
-````
+````javascript
 // bad
 if (currentUser) {
   function test() {
@@ -393,7 +393,7 @@ if (currentUser) {
 // 2.B.1.3
 // var statements should always be in the beginning of their respective scope (function).
 
-````
+````javascript
 // Bad
 function foo() {
 
@@ -412,7 +412,7 @@ function foo() {
 }
 ````
 * Name your functions. This is helpful for stack traces.
-````
+````javascript
 // bad
 var log = function(msg) {
   console.log(msg);
@@ -428,7 +428,7 @@ var log = function log(msg) {
 ## ES6 Standard 
 // 2.B.1.4
 // const and let, from ECMAScript 6, should likewise be at the top of their scope (block).
-````
+````javascript
 // Bad
 function foo() {
   let foo,
@@ -449,7 +449,7 @@ function foo() {
 ````
 * do not use function declarations within blocks
 * While most script engines support Function Declarations within blocks it is not part of ECMAScript (see ECMA-262, clause 13 and 14). Worse implementations are inconsistent with each other and with future EcmaScript proposals. ECMAScript only allows for Function Declarations in the root statement list of a script or function. Instead use a variable initialized with a Function Expression to define a function within a block:
-````
+````javascript
 \\ bad
 if (x) {
   function foo() {}
@@ -464,7 +464,7 @@ if (x) {
 
 
 // 2.B.2.1
-````
+````javascript
 // Named Function Declaration
 function foo( arg1, argN ) {
 
@@ -475,7 +475,7 @@ foo( arg1, argN );
 ````
 
 // 2.B.2.2
-````
+````javascript
 // Named Function Declaration
 function square( number ) {
   return number * number;
@@ -495,7 +495,7 @@ square( 10, function( square ) {
 ````
 
 // 2.B.2.3
-````
+````javascript
 // Function Expression
 var square = function( number ) {
   // Return something valuable and relevant
@@ -514,7 +514,7 @@ var factorial = function factorial( number ) {
 };
 ````
 // 2.B.2.4
-````
+````javascript
 // Constructor Declaration
 function FooBar( options ) {
 
@@ -529,7 +529,7 @@ fooBar.options;
 ````
 
 * Assign methods to the prototype object, instead of overwriting the prototype with a new object. Overwriting the prototype makes inheritance impossible: by resetting the prototype you'll overwrite the base!
-````
+````javascript
 function Jedi() {
   console.log('new jedi');
 }
@@ -555,7 +555,7 @@ Jedi.prototype.block = function block() {
 };
 ````
 * Methods can return this to help with method chaining.
-````
+````javascript
 // bad
 Jedi.prototype.jump = function() {
   this.jumping = true;
@@ -589,7 +589,7 @@ luke.jump()
 
 ### toString() methods
 * It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
-````
+````javascript
 function Jedi(options) {
   options || (options = {});
   this.name = options.name || 'no name';
@@ -606,7 +606,7 @@ Jedi.prototype.toString = function toString() {
 
 ### Events
 * When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass a hash instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
-````
+````javascript
 // bad
 $(this).trigger('listingUpdated', listing.id);
 
@@ -631,7 +631,7 @@ $(this).on('listingUpdated', function(e, data) {
 * The file should be named with camelCase, live in a folder with the same name, and match the name of the single export.
 * Add a method called noConflict() that sets the exported module to the previous version and returns this one.
 * Add a method called noConflict() that sets the exported module to the previous version and returns this one.
-````
+````javascript
 // fancyInput/fancyInput.js
 
 !function(global) {
@@ -653,7 +653,7 @@ $(this).on('listingUpdated', function(e, data) {
 ````
 # jQuery
 * Prefix jQuery object variables with a $.
-````
+````javascript
 // bad
 var sidebar = $('.sidebar');
 
@@ -661,7 +661,7 @@ var sidebar = $('.sidebar');
 var $sidebar = $('.sidebar');
 ````
 * Cache jQuery lookups.
-````
+````javascript
 // bad
 function setSidebar() {
   $('.sidebar').hide();
@@ -686,7 +686,7 @@ function setSidebar() {
 }
 ````
 * For DOM queries use Cascading $('.sidebar ul') or parent > child $('.sidebar > ul').
-````
+````javascript
 // bad
 $('ul', '.sidebar').hide();
 
@@ -707,7 +707,7 @@ C. Exceptions, Slight Deviations
 
 // 2.C.1.1
 // Functions with callbacks
-````
+````javascript
 foo(function() {
   // Note there is no extra space between the first paren
   // of the executing function call and the word "function"
@@ -717,7 +717,7 @@ foo(function() {
 foo([ "alpha", "beta" ]);
 ````
 // 2.C.1.2
-````
+````javascript
 // Function accepting an object, no space
 foo({
   a: "alpha",
@@ -735,7 +735,7 @@ if ( !("foo" in obj) ) {
 
 ### When Hoisting is Appropriate
 * Variable declarations get hoisted to the top of their scope, their assignment does not.
-````
+````javascript
 // we know this wouldn't work (assuming there
 // is no notDefined global variable)
 function example() {
@@ -761,7 +761,7 @@ function example() {
 }
 ````
 * Anonymous function expressions hoist their variable name, but not the function assignment.
-````
+````javascript
 function example() {
   console.log(anonymous); // => undefined
 
@@ -773,7 +773,7 @@ function example() {
 }
 ````
 * Named function expressions hoist the variable name, not the function name or the function body.
-````
+````javascript
 function example() {
   console.log(named); // => undefined
 
@@ -799,7 +799,7 @@ function example() {
 }
 ````
 * Function declarations hoist their name and the function body.
-````
+````javascript
 function example() {
   superPower(); // => Flying
 
@@ -813,7 +813,7 @@ E. Quotes
 // Whether you prefer single or double shouldn't matter, there is no difference in how JavaScript parses them. What ABSOLUTELY MUST be enforced is consistency. Never mix quotes in the same project. Pick one style and stick with it.
 
 * Use single quotes '' for strings
-````
+````javascript
 // bad
 var name = "Bob Parr";
 
@@ -833,7 +833,7 @@ var fullName = 'Bob ' + this.lastName;
 * The whitespace at the beginning of each line can't be safely stripped at compile time; whitespace after the slash will result in tricky errors; and while most script engines support this, it is not part of ECMAScript.
 
 Use string concatenation instead:
-````
+````javascript
 // bad
 var errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
 
@@ -864,7 +864,7 @@ var myString = 'A rather long string of English text, an error message ' +
     'just gravy.  Have a nice day.';
 ````
 * When programmatically building up a string, use Array#join instead of string concatenation. Mostly for IE
-````
+````javascript
 var items,
     messages,
     length,
@@ -908,7 +908,7 @@ function inbox(messages) {
 
 ## Properties
 * Use dot notation when accessing properties.
-````
+````javascript
 var luke = {
   jedi: true,
   age: 28
@@ -921,7 +921,7 @@ var isJedi = luke['jedi'];
 var isJedi = luke.jedi;
 ````
 * Only use subscript notation [] when accessing properties with a variable.
-````
+````javascript
 var luke = {
   jedi: true,
   age: 28
@@ -944,7 +944,7 @@ Primitive types (number, string, boolean) are constant values.
 Objects' immutability is more subjective — objects should be considered immutable only if they do not demonstrate observable state change. This is not enforced by the compiler.
 
 * Always use var to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace.
-````
+````javascript
 // bad
 superPower = new SuperPower();
 
@@ -955,47 +955,47 @@ var superPower = new SuperPower();
 F. End of Lines and Empty Lines
 
 ## Type Checking
-````
+````javascript
 String:
 typeof variable === "string"
 ````
-````
+````javascript
 Number:
 typeof variable === "number"
 ````
-````
+````javascript
 Boolean:
 typeof variable === "boolean"
 ````
-````
+````javascript
 Object:
 typeof variable === "object"
 ````
-````
+````javascript
 Array:
 Array.isArray( arrayLikeObject )
 ````
-````
+````javascript
 Node:
 elem.nodeType === 1
 ````
-````
+````javascript
 null:
 variable === null
 ````
-````
+````javascript
 null or undefined:
 variable == null
 ````
-````
+````javascript
 Global Variables:
 typeof variable === "undefined"
 ````
-````
+````javascript
 Local Variables:
 variable === undefined
 ````
-````
+````javascript
 Properties:
 object.prop === undefined
 object.hasOwnProperty( prop )
@@ -1004,7 +1004,7 @@ object.hasOwnProperty( prop )
 
 B. Coerced Types
 // 3.B.1.1
-````
+````javascript
 // `foo` has been declared with the value `0` and its type is `number`
 var foo = 0;
 
@@ -1025,7 +1025,7 @@ if ( foo === 1 ) {
 ````
 
 // 3.B.1.2
-````
+````javascript
 // You can preempt issues by using smart coercion with unary + or - operators:
 foo = +document.getElementById("foo-input").value;
 //    ^ unary + operator will convert its right side operand to a number
@@ -1046,13 +1046,13 @@ if ( foo === 1 ) {
 * Numbers evaluate to false if +0, -0, or NaN, otherwise true
 * Strings evaluate to false if an empty string '', otherwise true
 *  An array is an object, objects evaluate to true
-````
+````javascript
 if ([0]) {
   // true
 }
 ````
 * Use shortcuts
-````
+````javascript
 // bad
 if (name !== '') {
   // ...stuff...
@@ -1075,7 +1075,7 @@ if (collection.length) {
 ````
 
 
-````
+````javascript
 // 4.1.1
 // When only evaluating that an array has length,
 // instead of this:
@@ -1148,7 +1148,7 @@ null == undefined
 ````
 // 4.2.1
 // Type coercion and evaluation notes
-````
+````javascript
 // Prefer `===` over `==` (unless the case requires loose type evaluation)
 
 // === does not coerce type, which means that:
@@ -1177,7 +1177,7 @@ true, false
 
 ## Comments
 * Use /** ... */ for multiline comments. Include a description, specify types and values for all parameters and return values.
-````
+````javascript
 // bad
 // make() returns a new element
 // based on the passed in tag name
@@ -1207,7 +1207,7 @@ function make(tag) {
 }
 ````
 * Use // for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment.
-````
+````javascript
 // bad
 var active = true;  // is current tab
 
@@ -1236,7 +1236,7 @@ function getType() {
 ````
 * Prefixing your comments with FIXME or TODO helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are FIXME -- need to figure this out or TODO -- need to implement.
 * Use // FIXME: to annotate problems
-````
+````javascript
 function Calculator() {
 
   // FIXME: shouldn't use a global here
@@ -1246,7 +1246,7 @@ function Calculator() {
 }
 ````
 * Use // TODO: to annotate solutions to problems
-````
+````javascript
 function Calculator() {
 
   // TODO: total should be configurable by an options param
@@ -1261,7 +1261,7 @@ The @const annotation on a variable or property implies that it is not overwrita
 A @const annotation on a method additionally implies that the method cannot not be overridden in subclasses.
 
 A @const annotation on a constructor implies the class cannot be subclassed (akin to final in Java).
-````
+````javascript
 \\ good
 /**
  * Request timeout in milliseconds.
@@ -1284,7 +1284,7 @@ sloth.MyFinalClass = function() {};
 
 ## Whitespaces
 * Use soft tabs set to 2 spaces. Never mix tabs and spaces.
-````
+````javascript
 // bad
 function() {
 ∙∙∙∙var name;
@@ -1301,7 +1301,7 @@ function() {
 }
 ````
 * Place 1 space before the leading brace.
-````
+````javascript
 // bad
 function test(){
   console.log('test');
@@ -1325,7 +1325,7 @@ dog.set('attr', {
 });
 ````
 * Set off operators with spaces.
-````
+````javascript
 // bad
 var x=y+5;
 
@@ -1333,7 +1333,7 @@ var x=y+5;
 var x = y + 5;
 ````
 * End files with a single newline character.
-````
+````javascript
 // bad
 (function(global) {
   // ...stuff...
@@ -1352,7 +1352,7 @@ var x = y + 5;
 ````
 
 * Use indentation when making long method chains.
-````
+````javascript
 // bad
 $('#items').find('.selected').highlight().end().find('.open').updateCount();
 
@@ -1383,7 +1383,7 @@ var leds = stage.selectAll('.led')
 
 ### Semicolons
 * Semicolons are optional, but you should always use them.
-````
+````javascript
 // bad
 (function() {
   var name = 'Skywalker'
@@ -1404,7 +1404,7 @@ var leds = stage.selectAll('.led')
 ````
 
 * Example of what happens when you don't use a semicolon
-````
+````javascript
 // 1.
 MyClass.prototype.myMethod = function() {
   return 42;
@@ -1440,7 +1440,7 @@ Why this happened:
 This has really surprised people, so make sure your assignments end with semicolons.
 
 * Semicolons should be included at the end of function expressions, but not at the end of function declarations. The distinction is best illustrated with an example:
-````
+````javascript
 var foo = function() {
   return true;
 };  // semicolon here.
@@ -1456,13 +1456,13 @@ function foo() {
 
 // 6.A.3.1
 // Naming strings
-````
+````javascript
 `dog` is a string
 ````
 
 // 6.A.3.2
 // Naming arrays
-````
+````javascript
 `dogs` is an array of `dog` strings
 ````
 
@@ -1471,7 +1471,7 @@ function foo() {
 
 camelCase; function and var declarations
 * Use camelCase when naming objects, functions, and instances
-````
+````javascript
 // bad
 var OBJEcttsssss = {};
 var this_is_my_object = {};
@@ -1493,7 +1493,7 @@ var user = new User({
 // Naming constructors, prototypes, etc.
 
 PascalCase; constructor function
-````
+````javascript
 // bad
 function user(options) {
   this.name = options.name;
@@ -1513,7 +1513,7 @@ var good = new User({
 });
 ````
 * Use a leading underscore _ when naming private properties
-````
+````javascript
 // bad
 this.__firstName__ = 'Panda';
 this.firstName_ = 'Panda';
@@ -1522,7 +1522,7 @@ this.firstName_ = 'Panda';
 this._firstName = 'Panda';
 ````
 * When saving a reference to this use _this.
-````
+````javascript
 // bad
 function() {
   var self = this;
@@ -1555,7 +1555,7 @@ rDesc = //;
 
 // 6.A.3.6
 // From the Google Closure Library Style Guide
-````
+````javascript
 functionNamesLikeThis;
 variableNamesLikeThis;
 ConstructorNamesLikeThis;
@@ -1568,7 +1568,7 @@ SYMBOLIC_CONSTANTS_LIKE_THIS;
 
 // 6.B.3
 As a last resort, create an alias to this using self as an Identifier. This is extremely bug prone and should be avoided whenever possible.
-````
+````javascript
 function Device( opts ) {
   var self = this;
 
