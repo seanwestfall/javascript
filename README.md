@@ -73,7 +73,7 @@ By Sean Westfall
       + [Other]
 22. [Performance and Memory]
 23. [Security]
-24. [Considerations on the JS Engine]
+24. [Considerations for JS Engine Performance]
       + V8
       + SpiderMonkey
       + IE
