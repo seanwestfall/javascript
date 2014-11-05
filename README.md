@@ -56,6 +56,7 @@ By Sean Westfall
       + [Hoisting]
       + [Callbacks]
       + [Semicolons]
+      + [Anonymous Functions]
       + [Eval]
 18. [Testing]
 19. [Resources]
@@ -66,10 +67,11 @@ By Sean Westfall
       + [Build Tools]
       + [Other]
 20. [Performance and Memory]
-21. [Considerations for Production]
-22. [IE Issues and Compatibility]
-23. [License]
-24. [Bibliography]
+21. [Security]
+22. [Considerations for Production]
+23. [IE Issues and Compatibility]
+24. [License]
+25. [Bibliography]
 
 ## Table of Contents
 
@@ -176,6 +178,25 @@ bar[0] = 9;
 ````
 
 ## Syntax
+````javascript
+var arr = [1, 2, 3];  // No space after [ or before ].
+var obj = {a: 1, b: 2, c: 3};  // No space after { or before }.
+````
+````javascript
+// bad
+CORRECT_Object.prototype = {
+  a: 0,
+  b: 1,
+  lengthyName: 2
+};
+// good
+WRONG_Object.prototype = {
+  a          : 0,
+  b          : 1,
+  lengthyName: 2
+};
+````
+
 ###Objects
 * Object constructors don't have the same problems, but for readability and consistency object literals should be used.
 * Should be written as:
