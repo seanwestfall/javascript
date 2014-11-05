@@ -1455,15 +1455,15 @@ function foo() {
 ````
 // 6.A.3.1
 // Naming strings
-
+````
 `dog` is a string
-
+````
 
 // 6.A.3.2
 // Naming arrays
-
+````
 `dogs` is an array of `dog` strings
-
+````
 
 // 6.A.3.3
 // Naming functions, objects, instances, etc
@@ -1545,17 +1545,16 @@ function() {
     console.log(_this);
   };
 }
-````
 
 // 6.A.3.5
 // Naming regular expressions
 
 rDesc = //;
-
+```
 
 // 6.A.3.6
 // From the Google Closure Library Style Guide
-
+````
 functionNamesLikeThis;
 variableNamesLikeThis;
 ConstructorNamesLikeThis;
