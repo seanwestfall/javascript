@@ -68,13 +68,13 @@ By Sean Westfall
 ### [EcmaScript Language Specification, ECMA-262 6th Edition *Draft*](https://people.mozilla.org/~jorendorff/es6-draft.html)
 
 # JavaScript Books Worth Reading:
-Secrets of the JavaScript Ninja by John Resig and Bear Bibeault
-JavaScript: The Good Parts by Douglas Crockford
-Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript by David Herman
-High Performance JavaScript by Nicholas C. Zakas
-Eloquent JavaScript: A Modern Introduction to Programming by Marijn Haverbeke
-JavaScript Patterns by Stoyan Stefanov
-Functional JavaScript: Introducing Functional Programming with Underscore.js by Michael Fogus
++ Secrets of the JavaScript Ninja by John Resig and Bear Bibeault
++ JavaScript: The Good Parts by Douglas Crockford
++ Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript by David Herman
++ High Performance JavaScript by Nicholas C. Zakas
++ Eloquent JavaScript: A Modern Introduction to Programming by Marijn Haverbeke
++ JavaScript Patterns by Stoyan Stefanov
++ Functional JavaScript: Introducing Functional Programming with Underscore.js by Michael Fogus
 
 # JavaScript Blogs Worth Reading:
 http://perfectionkills.com/
