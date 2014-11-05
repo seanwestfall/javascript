@@ -16,10 +16,7 @@ By Sean Westfall
 ## Table of Contents preliminary
 
 0. [Official Documentation](#a)
-	+ ES 5 Annotated
-	+ ES 5 Official Spec
-	+ ES 6.1 Draft
-	+ MSDN
+	+ ECMAScript
 	+ Browser Compatibility
 1. [Terminology]
 2. [Using Strict]
@@ -28,6 +25,9 @@ By Sean Westfall
       + [Strings]
       + [Numbers]
       + [Booleans]
+      + [Undefined]
+      + [Null]
+      + [Symbol ES6]
   + [Complex Types]
     + [Functions]
     + [Properties]
@@ -35,6 +35,9 @@ By Sean Westfall
     + [Objects]
       + [Accessors]
       + [Constructors]
+  + [Other]
+    + [NaN]
+    + [Infinity]
 4. [Conditional Evaluation]
 5. [Type Casting & Coercion]
 6. [Naming]
