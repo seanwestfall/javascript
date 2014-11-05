@@ -95,7 +95,7 @@ Primitives: When you access a primitive type you work directly on its value
  * boolean
  * null
  * undefined
-````
+````javascript
 var foo = 1,
     bar = foo;
 
