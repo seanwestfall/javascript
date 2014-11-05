@@ -15,49 +15,49 @@ By Sean Westfall
 
 ## Table of Contents preliminary
 
-0. Official Documentation
+0. [Official Documentation]
 	+ ES 5 Annotated
 	+ ES 5 Official Spec
 	+ ES 6.1 Draft
 	+ MSDN
 	+ Browser Compatibility
-1. Terminology
-2. Using Strict
-3. Syntax
-  + Primative Types
-      + Strings
-      + Numbers
-      + Booleans
-  + Complex Types
-    + Functions
-    + Properties
-  + Arrays
-  + Objects
-	+ Accessors
-	+ Constructors
-4. Conditional Evaluation
-5. Type Casting & Coercion
-6. Naming
-7. Proper Spacing
-8. Comments
-9. Semicolons
-10. Events
-11. Modules
-12. Proper jQuery Style
-  + When to use jQuery and when not to
-13. Bitwise Operators
-14. Promises
-15. Misc
-  + Hoisting
-  + Callbacks
-16. Testing
-17. Resources
-  + Books Worth Reading
-  + Blogs Worth Following
-18. Resources for Performance testing
-19. Considerations for Production
-20. IE Issues and Compatibility
-21. License
+1. [Terminology]
+2. [Using Strict]
+3. [Syntax]
+  + [Primative Types]
+      + [Strings]
+      + [Numbers]
+      + [Booleans]
+  + [Complex Types]
+    + [Functions]
+    + [Properties]
+    + [Arrays]
+    + [Objects]
+      + [Accessors]
+      + [Constructors]
+4. [Conditional Evaluation]
+5. [Type Casting & Coercion]
+6. [Naming]
+7. [Proper Spacing]
+8. [Comments]
+10. [Events]
+11. [Modules]
+12  [jQuery]
+  + [When to use jQuery and when not to]
+13. [Bitwise Operators]
+14. [Promises]
+15. [Misc]
+  + [Hoisting]
+  + [Callbacks]
+  + [Semicolons]
+16. [Testing]
+17. [Resources]
+  + [Books Worth Reading]
+  + [Blogs Worth Following]
+18. [Resources for Performance testing]
+19. [Considerations for Production]
+20. [IE Issues and Compatibility]
+21. [License]
 
 ## Table of Contents
 
