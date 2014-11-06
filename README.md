@@ -1,4 +1,4 @@
-javaScript
+JavaScript
 ==========
 
 A Practical Style Guide to Everyday JavaScript.
