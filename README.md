@@ -300,6 +300,35 @@ for (i = 0; i < len; i++) {
 itemsCopy = items.slice();
 ````
 
+Array.prototype.every()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every
+
+Use every when checking the condition of an array.
+
+or use 
+
+Array.prototype.some()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
+
+When checking every element in an array for a condition.
+
+Array.prototype.splice()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+
+use splice to remove elements from an array.
+
+Array.prototype.push()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push
+
+Use push to add elements to the end of an array.
+
+Array.prototype.unshift()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift
+
+Use unshift to add elements to the beginning of an array, but don't forget that the function returns the length of the array -- not th new array.
+
+
+
 ### Loops
 for-in loops are often incorrectly used to loop over the elements in an Array. This is however very error prone because it does not loop from 0 to length - 1 but over all the present keys in the object and its prototype chain. Here are a few cases where it fails:
 ````javascript
