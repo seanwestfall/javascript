@@ -244,6 +244,29 @@ var o2 = {
 };
 ````
 
+Object.keys()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
+
+Use object keys to get an array of an object's keys, and then iterate through that object using array functions.
+
+````javascript
+// good
+var obj = { 
+  a:'item one',
+  b:'item two'
+};
+var keys = Object.keys(obj);
+key.forEach(function(i) {
+  console.log(obj[i]);
+});
+/*  => prints:
+ *  item one
+ *  item two
+ */  
+````
+
+To get only an object keys that it owns, use this version of object keys.
+
 ###Arrays
 * Use Array and Object literals instead of Array and Object constructors.
 * Array constructors are error-prone due to their arguments.
