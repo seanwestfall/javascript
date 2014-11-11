@@ -239,7 +239,8 @@ var items = getItems(),
 var arr = [1, 2, 3];  // No space after [ or before ].
 var obj = {a: 1, b: 2, c: 3};  // No space after { or before }.
 
-// depending on the number of characters, and the length of the data (~10 char or more), consider spacing on multiple lines:
+// depending on the number of characters, and the length of the data (~10 char or more), 
+// consider spacing on multiple lines:
 var obj = {a:1,b:2}; // short
 var obj = {a:'item one', b:'item two'}; // short
 
@@ -298,10 +299,8 @@ var o2 = {
 };
 ````
 
-Object.keys()
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
-
-Use object keys to get an array of an object's keys, and then iterate through that object using array functions.
+* Object.keys()
+Use [Object.keys()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys) to get an array of an object's keys, and then iterate through that object using array functions.
 
 ````javascript
 // good
