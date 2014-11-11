@@ -18,9 +18,9 @@ By Sean Westfall
 0. [Official Documentation](#official-documentation)
 	+ ECMAScript
 	+ Browser Compatibility
-1. [Terminology]
-2. [Using Strict]
-3. [Syntax]
+1. [Terminology](#terminology)
+2. [Using Strict](#using-strict)
+3. [Syntax](#syntax)
   + [Primative Types](#types)
       + [Strings]
       + [Numbers]
@@ -29,10 +29,10 @@ By Sean Westfall
       + [Null]
       + [Symbol ES6]
   + [Complex Types]
-    + [Functions]
-    + [Properties]
-    + [Arrays]
-    + [Objects]
+    + [Functions](#functions)
+      + [Properties](#properties)
+    + [Arrays](#arrays)
+    + [Objects](#objects)
       + [Accessors]
       + [Constructors]
   + [Other]
@@ -163,6 +163,57 @@ By Sean Westfall
 + https://github.com/airbnb/javascript
 + https://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml
 + http://contribute.jquery.org/style-guide/js/ (The jQuery style guide also contains a general JS style guide)
+
+## Terminology
+These are the terms used through this guide, aswell as the ECMAScript standard. Please refer to this section for the correct and exact usage:
+type
+primitive value
+object
+constructor
+prototype
+native object
+built-in object
+host object
+undefined value
+Undefined type
+null value
+Null type
+Boolean value
+Boolean type
+Boolean object
+String value
+String type
+String object
+Number value
+Number type
+Number object
+Infinity
+NaN
+function
+built-in function
+property
+method
+built-in method
+attribute
+own property
+inherited property
+
+## Using Strict
+Declare with
+`"use strict";`
+at the top of your JavaScript to declare your JavaScript to run in strict mode.
+
+Strict mode makes it easier to write "secure" JavaScript.
+
+Strict mode changes previously accepted "bad syntax" into real errors.
+
+As an example, in normal JavaScript, mistyping a variable name creates a new global variable. In strict mode, this will throw an error, making it impossible to accidentally create a global variable.
+
+In normal JavaScript, a developer will not receive any error feedback assigning values to non-writable properties.
+
+In strict mode, any assignment to a non-writable property, a getter-only property, a non-existing property, a non-existing variable, or a non-existing object, will throw an error.
+
+## Syntax
 
 ## Types:
 Primitives: When you access a primitive type you work directly on its value
