@@ -1191,6 +1191,33 @@ if ( foo === 1 ) {
 ````
 
 ## 4. Conditional Evaluation
+###Syntax
+* keep the else clause in a if else condtional on the same line and the closing brace:
+````javascript
+// good
+if ( condition ) {
+    doSomething();
+} else if ( otherCondition ) {
+    somethingElse();
+} else {
+    otherThing();
+}
+````
+
+* Lines should be broken into logical groups if it improves readability, such as splitting each expression of a ternary operator onto its own line even if both will fit on a single line.
+````javascript
+var baz = firstCondition( foo ) && secondCondition( bar ) ?
+    qux( foo, bar ) :
+    foo;
+````
+* When a conditional is too long to fit on one line, successive lines must be indented one extra level to distinguish them from the body.
+````javascript
+   if ( firstCondition() && secondCondition() &&
+            thirdCondition() ) {
+        doStuff();
+    }
+````
+
 * Objects evaluate to true
 * Undefined evaluates to false
 * Null evaluates to false
