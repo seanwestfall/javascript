@@ -306,6 +306,7 @@ var items = new Array();
 // good
 var items = [];
 ````
+* Use Array.prototype.push()(#https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push) to add elements to the end of an array:
 ````javascript
 var someStack = [];
 // bad
@@ -313,6 +314,12 @@ someStack[someStack.length] = 'abracadabra';
 // good
 someStack.push('abracadabra');
 ````
+* Likewise use Array.prototype.unshift()(#https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift) to add elements to the beginning of an array:
+* but don't forget that the function returns the length of the array, not the new array
+````javascript
+someStack.unshift('abracadabra');
+````
+* How to properly copy and array
 ````javascript
 var len = items.length,
     itemsCopy = [],
@@ -346,9 +353,6 @@ Array.prototype.push()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push
 
 Use push to add elements to the end of an array.
-
-Array.prototype.unshift()
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift
 
 Use unshift to add elements to the beginning of an array, but don't forget that the function returns the length of the array -- not th new array.
 
