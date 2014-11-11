@@ -21,14 +21,14 @@ By Sean Westfall
 1. [Terminology](#terminology)
 2. [Using Strict](#using-strict)
 3. [Syntax](#syntax)
-  + [Primative Types](#types)
+  + [Primative Types](#primative-types)
       + [Strings]
       + [Numbers]
       + [Booleans]
       + [Undefined]
       + [Null]
       + [Symbol ES6]
-  + [Complex Types]
+  + [Complex Types](#complex-types)
     + [Functions](#functions)
       + [Properties](#properties)
     + [Arrays](#arrays)
@@ -215,7 +215,7 @@ In strict mode, any assignment to a non-writable property, a getter-only propert
 
 ## Syntax
 
-## Types:
+## Primative Types
 Primitives: When you access a primitive type you work directly on its value
  * string
  * number
@@ -242,7 +242,6 @@ var foo = [1, 2],
 bar[0] = 9;
 ````
 
-## Syntax
 ### Variable Declarations
 
 // 2.B.1.2
@@ -286,6 +285,10 @@ var items = getItems(),
     i;
 ````
 
+### Complex Types
+
+## Objects
+
 ````javascript
 var arr = [1, 2, 3];  // No space after [ or before ].
 var obj = {a: 1, b: 2, c: 3};  // No space after { or before }.
@@ -317,7 +320,6 @@ WRONG_Object.prototype = {
 };
 ````
 
-### Objects
 * Object constructors don't have the same problems, but for readability and consistency object literals should be used.
 * Should be written as:
 
