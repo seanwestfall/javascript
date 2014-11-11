@@ -239,10 +239,11 @@ var items = getItems(),
 var arr = [1, 2, 3];  // No space after [ or before ].
 var obj = {a: 1, b: 2, c: 3};  // No space after { or before }.
 
-\\ depending on the number of characters, and the length of the data, consider spacing on multiple lines:
-var obj = {a:'item one', b:'item two'};
+// depending on the number of characters, and the length of the data (~10 char or more), consider spacing on multiple lines:
+var obj = {a:1,b:2}; // short
+var obj = {a:'item one', b:'item two'}; // short
 
-\\ Mutliple lines will improve readablity when the data gets long (~10 char or more):
+// long
 var obj = {
   'one':'Hey I am a long line! aaaaaaaaaaaaaaaaa',
   'two':'Hey I am a long line too! aaaaaaaaaaaaaaaaa'
