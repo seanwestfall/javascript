@@ -166,44 +166,46 @@ By Sean Westfall
 
 ## Terminology
 These are the terms used through this guide, aswell as the ECMAScript standard. Please refer to this section for the correct and exact usage:
-type
-primitive value
-object
-constructor
-prototype
-native object
-built-in object
-host object
-undefined value
-Undefined type
-null value
-Null type
-Boolean value
-Boolean type
-Boolean object
-String value
-String type
-String object
-Number value
-Number type
-Number object
-Infinity
-NaN
-function
-built-in function
-property
-method
-built-in method
-attribute
-own property
-inherited property
+- type
+- primitive value
+- object
+- constructor
+- prototype
+- native object
+- built-in object
+- host object
+- undefined value
+- Undefined type
+- null value
+- Null type
+- Boolean value
+- Boolean type
+- Boolean object
+- String value
+- String type
+- String object
+- Number value
+- Number type
+- Number object
+- Infinity
+- NaN
+- function
+- built-in function
+- property
+- method
+- built-in method
+- attribute
+- own property
+- inherited property
 
 ## Using Strict
 Declare with
 `"use strict";`
 at the top of your JavaScript to declare your JavaScript to run in strict mode.
 
+
 Strict mode makes it easier to write "secure" JavaScript.
+
 
 Strict mode changes previously accepted "bad syntax" into real errors.
 
