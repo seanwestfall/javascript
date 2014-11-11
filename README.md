@@ -245,9 +245,10 @@ var obj = {a:'item one', b:'item two'};
 \\ Mutliple lines will improve readablity when the data gets long (~10 char or more):
 var obj = {
   'one':'Hey I am a long line! aaaaaaaaaaaaaaaaa',
-  'two':'Hey I am a long line two! aaaaaaaaaaaaaaaaa'
+  'two':'Hey I am a long line too! aaaaaaaaaaaaaaaaa'
 };
 ````
+* Matching indentation also improves readablity 
 ````javascript
 // bad
 CORRECT_Object.prototype = {
