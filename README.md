@@ -235,71 +235,17 @@ var items = getItems(),
     i;
 ````
 
-* Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
-````javascript
-// bad
-function() {
-  test();
-  console.log('doing stuff..');
-
-  //..other stuff..
-
-  var name = getName();
-
-  if (name === 'test') {
-    return false;
-  }
-
-  return name;
-}
-
-// good
-function() {
-  var name = getName();
-
-  test();
-  console.log('doing stuff..');
-
-  //..other stuff..
-
-  if (name === 'test') {
-    return false;
-  }
-
-  return name;
-}
-
-// bad
-function() {
-  var name = getName();
-
-  if (!arguments.length) {
-    return false;
-  }
-
-  return true;
-}
-
-// good
-function() {
-  if (!arguments.length) {
-    return false;
-  }
-
-  var name = getName();
-
-  return true;
-}
-````
-
 ````javascript
 var arr = [1, 2, 3];  // No space after [ or before ].
 var obj = {a: 1, b: 2, c: 3};  // No space after { or before }.
 
-\\ depending on the number of characters, and the type of data, consider spacing on multiple lines:
-var obj = { 
-  a:'item one',
-  b:'item two'
+\\ depending on the number of characters, and the length of the data, consider spacing on multiple lines:
+var obj = {a:'item one', b:'item two'};
+
+\\ Mutliple lines will improve readablity when the data gets long (~10 char or more):
+var obj = {
+  'one':'Hey I am a long line! aaaaaaaaaaaaaaaaa',
+  'two':'Hey I am a long line two! aaaaaaaaaaaaaaaaa'
 };
 ````
 ````javascript
@@ -490,6 +436,63 @@ function printArray(arr) {
 
 
 ### Functions
+* Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
+````javascript
+// bad
+function() {
+  test();
+  console.log('doing stuff..');
+
+  //..other stuff..
+
+  var name = getName();
+
+  if (name === 'test') {
+    return false;
+  }
+
+  return name;
+}
+
+// good
+function() {
+  var name = getName();
+
+  test();
+  console.log('doing stuff..');
+
+  //..other stuff..
+
+  if (name === 'test') {
+    return false;
+  }
+
+  return name;
+}
+
+// bad
+function() {
+  var name = getName();
+
+  if (!arguments.length) {
+    return false;
+  }
+
+  return true;
+}
+
+// good
+function() {
+  if (!arguments.length) {
+    return false;
+  }
+
+  var name = getName();
+
+  return true;
+}
+````
+* Only sometimes hoisting is okay, but usually not: see below for when it's appropriate.
 
 * Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
 ````javascript
