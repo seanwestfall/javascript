@@ -192,9 +192,115 @@ bar[0] = 9;
 ````
 
 ## Syntax
+### Variable Declarations
+
+// 2.B.1.2
+// Using only one `var` per scope (function) promotes readability
+// and keeps your declaration list free of clutter (also saves a few keystrokes)
+````javascript
+// Bad
+var foo = "";
+var bar = "";
+var qux;
+
+// Good
+var foo = "",
+  bar = "",
+  qux;
+
+// or..
+var // Comment on these
+foo = "",
+bar = "",
+quux;
+````
+* Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
+````javascript
+// bad
+var i, len, dragonball,
+    items = getItems(),
+    goSportsTeam = true;
+
+// bad
+var i, items = getItems(),
+    dragonball,
+    goSportsTeam = true,
+    len;
+
+// good
+var items = getItems(),
+    goSportsTeam = true,
+    dragonball,
+    length,
+    i;
+````
+
+* Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
+````javascript
+// bad
+function() {
+  test();
+  console.log('doing stuff..');
+
+  //..other stuff..
+
+  var name = getName();
+
+  if (name === 'test') {
+    return false;
+  }
+
+  return name;
+}
+
+// good
+function() {
+  var name = getName();
+
+  test();
+  console.log('doing stuff..');
+
+  //..other stuff..
+
+  if (name === 'test') {
+    return false;
+  }
+
+  return name;
+}
+
+// bad
+function() {
+  var name = getName();
+
+  if (!arguments.length) {
+    return false;
+  }
+
+  return true;
+}
+
+// good
+function() {
+  if (!arguments.length) {
+    return false;
+  }
+
+  var name = getName();
+
+  return true;
+}
+````
+
 ````javascript
 var arr = [1, 2, 3];  // No space after [ or before ].
 var obj = {a: 1, b: 2, c: 3};  // No space after { or before }.
+
+\\ depending on the number of characters, and the type of data, consider spacing on multiple lines:
+var obj = { 
+  a:'item one',
+  b:'item two'
+};
 ````
 ````javascript
 // bad
@@ -306,7 +412,7 @@ var items = new Array();
 // good
 var items = [];
 ````
-* Use Array.prototype.push()(#https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push) to add elements to the end of an array:
+* Use [Array.prototype.push()](#https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push) to add elements to the end of an array:
 ````javascript
 var someStack = [];
 // bad
@@ -314,12 +420,13 @@ someStack[someStack.length] = 'abracadabra';
 // good
 someStack.push('abracadabra');
 ````
-* Likewise use Array.prototype.unshift()(#https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift) to add elements to the beginning of an array:
+* Likewise use [Array.prototype.unshift()](#https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift) to add elements to the beginning of an array:
 * but don't forget that the function returns the length of the array, not the new array
 ````javascript
 someStack.unshift('abracadabra');
 ````
-* How to properly copy and array
+* Use [Array.prototype.splice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) to copy and remove elements from an array.
+* Here's how to properly copy and array
 ````javascript
 var len = items.length,
     itemsCopy = [],
@@ -343,20 +450,6 @@ Array.prototype.some()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
 
 When checking every element in an array for a condition.
-
-Array.prototype.splice()
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
-
-use splice to remove elements from an array.
-
-Array.prototype.push()
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push
-
-Use push to add elements to the end of an array.
-
-Use unshift to add elements to the beginning of an array, but don't forget that the function returns the length of the array -- not th new array.
-
-
 
 ### Loops
 for-in loops are often incorrectly used to loop over the elements in an Array. This is however very error prone because it does not loop from 0 to length - 1 but over all the present keys in the object and its prototype chain. Here are a few cases where it fails:
@@ -397,104 +490,6 @@ function printArray(arr) {
 
 
 ### Functions
-
-// 2.B.1.2
-// Using only one `var` per scope (function) promotes readability
-// and keeps your declaration list free of clutter (also saves a few keystrokes)
-````javascript
-// Bad
-var foo = "";
-var bar = "";
-var qux;
-
-// Good
-var foo = "",
-  bar = "",
-  qux;
-
-// or..
-var // Comment on these
-foo = "",
-bar = "",
-quux;
-````
-* Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
-````javascript
-// bad
-var i, len, dragonball,
-    items = getItems(),
-    goSportsTeam = true;
-
-// bad
-var i, items = getItems(),
-    dragonball,
-    goSportsTeam = true,
-    len;
-
-// good
-var items = getItems(),
-    goSportsTeam = true,
-    dragonball,
-    length,
-    i;
-````
-
-* Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
-````javascript
-// bad
-function() {
-  test();
-  console.log('doing stuff..');
-
-  //..other stuff..
-
-  var name = getName();
-
-  if (name === 'test') {
-    return false;
-  }
-
-  return name;
-}
-
-// good
-function() {
-  var name = getName();
-
-  test();
-  console.log('doing stuff..');
-
-  //..other stuff..
-
-  if (name === 'test') {
-    return false;
-  }
-
-  return name;
-}
-
-// bad
-function() {
-  var name = getName();
-
-  if (!arguments.length) {
-    return false;
-  }
-
-  return true;
-}
-
-// good
-function() {
-  if (!arguments.length) {
-    return false;
-  }
-
-  var name = getName();
-
-  return true;
-}
-````
 
 * Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
 ````javascript
