@@ -258,7 +258,7 @@ var obj = {
 
 var keys = Object.keys(obj);
 
-key.forEach(function(i) {
+keys.forEach(function(i) {
   console.log(obj[i]);
 });
 /*  => prints:
