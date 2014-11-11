@@ -15,13 +15,13 @@ By Sean Westfall
 
 ## Table of Contents preliminary
 
-0. [Official Documentation](#a)
+0. [Official Documentation](#official-documentation)
 	+ ECMAScript
 	+ Browser Compatibility
 1. [Terminology]
 2. [Using Strict]
 3. [Syntax]
-  + [Primative Types]
+  + [Primative Types](#types)
       + [Strings]
       + [Numbers]
       + [Booleans]
@@ -64,7 +64,7 @@ By Sean Westfall
       + [Eval]
 19. [Testing]
 20. [Considerations for Production]
-21. [Resources]
+21. [Resources](#Resources)
       + [Essential Reading]
       + [Books Worth Reading]
       + [Blogs Worth Following]
@@ -134,7 +134,7 @@ By Sean Westfall
 
 ## Resources
 
-# Official Documentation
+## Official Documentation
 ### [Annotated ECMAScript 5.1](http://es5.github.com/)
 ### [EcmaScript Language Specification, 5.1 Edition](http://ecma-international.org/ecma-262/5.1/)
 ### [EcmaScript Language Specification, ECMA-262 6th Edition *Draft*](https://people.mozilla.org/~jorendorff/es6-draft.html)
@@ -266,7 +266,7 @@ WRONG_Object.prototype = {
 };
 ````
 
-###Objects
+### Objects
 * Object constructors don't have the same problems, but for readability and consistency object literals should be used.
 * Should be written as:
 
