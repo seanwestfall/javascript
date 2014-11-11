@@ -1354,7 +1354,43 @@ true, false
 "", 0, null, undefined, NaN, void 0
 ````
 
+## Switch Statements
+* The usage of switch statements is generally discouraged, but can be useful when there are a large number of cases - especially when multiple cases can be handled by the same block, or fall-through logic (the default case) can be leveraged.
+- Use a break for each case other than default.
+- Align case statements with the switch.
+````javascript
+switch ( event.keyCode ) {
+case $.ui.keyCode.ENTER:
+case $.ui.keyCode.SPACE:
+    x();
+    break;
+case $.ui.keyCode.ESCAPE:
+    y();
+    break;
+default:
+    z();
+}
+````
+
 ## Comments
+* Comments are always preceded by a blank line. Comments start with a capital first letter, but don't require a period at the end, unless you're writing full sentences. There must be a single space between the comment token and the comment text.
+
+Single line comments go over the line they refer to:
+````javascript
+// We need an explicit "bar", because later in the code foo is checked.
+var foo = "bar";
+ 
+// Even long comments that span
+// multiple lines use the single
+// line comment form.
+````
+* Inline comments are allowed as an exception when used to annotate special arguments in formal parameter lists or when needed to support a specific development tool:
+````javascript
+function foo( types, selector, data, fn, /* INTERNAL */ one ) {
+    // Do stuff
+}
+````
+
 * Use /** ... */ for multiline comments. Include a description, specify types and values for all parameters and return values.
 ````javascript
 // bad
