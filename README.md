@@ -255,7 +255,9 @@ var obj = {
   a:'item one',
   b:'item two'
 };
+
 var keys = Object.keys(obj);
+
 key.forEach(function(i) {
   console.log(obj[i]);
 });
