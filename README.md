@@ -41,7 +41,7 @@ By Sean Westfall
 4. [Conditional Evaluation]
 5. [Type Casting & Coercion]
 6. [Naming]
-7. [Proper Spacing]
+7. [Proper Spacing](#white-spaces)
 8. [Comments](#comments)
 9. [Commonly Used Objects]
      + Regular Expression
