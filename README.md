@@ -40,8 +40,8 @@ By Sean Westfall
     + [Infinity]
 4. [Conditional Evaluation]
 5. [Type Casting & Coercion]
-6. [Naming]
-7. [Proper Spacing](#white-spaces)
+6. [Naming](#naming)
+7. [Proper Spacing](#whitespaces)
 8. [Comments](#comments)
 9. [Commonly Used Objects]
      + Regular Expression
