@@ -42,7 +42,7 @@ By Sean Westfall
 5. [Type Casting & Coercion]
 6. [Naming]
 7. [Proper Spacing]
-8. [Comments]
+8. [Comments](#comments)
 9. [Commonly Used Objects]
      + Regular Expression
      + Date
