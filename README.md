@@ -53,7 +53,7 @@ By Sean Westfall
 12. [Exceptions]
 13. [Modules]
 14. [JSON]
-15. [jQuery]
+15. [jQuery](#jquery)
       + [When to use jQuery and when not to]
 16. [Bitwise Operators]
 18. [Misc]
