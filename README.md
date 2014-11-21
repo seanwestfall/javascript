@@ -322,6 +322,16 @@ WRONG_Object.prototype = {
 };
 ````
 
+````javascript
+// another elegant way to go through an objects direct properties 
+for (var key in obj) {
+  if (obj.hasOwnProperty(key)) { // only look at direct properties
+    var value = obj[key];
+    // do stuff...
+  }
+}
+`````
+
 * Object constructors don't have the same problems, but for readability and consistency object literals should be used.
 * Should be written as:
 
