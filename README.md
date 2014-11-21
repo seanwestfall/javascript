@@ -71,7 +71,7 @@ By Sean Westfall
       + [Linters]
       + [Build Tools]
       + [Other]
-22. [Performance and Memory]
+22. [Performance and Memory](#Performance-and-Memory-Tuning)
 23. [Security]
 24. [Considerations for JS Engine Performance]
       + V8
@@ -1869,6 +1869,77 @@ function Device( opts ) {
   }, opts.freq || 100 );
 }
 ````
+
+### Performance and Memory Tuning
+Always start with a server rendered page.
+
+#Why?
+
+tl;DR: Server rendering is not about SEO, it’s about performance. Consider the additional roundtrips to get scripts, styles, and subsequent API requests. In the future, considering HTTP 2.0 PUSH of resources.
+The first thing I’m compelled to point out is a fairly common false dichotomy. That of “server-rendered apps vs single-page apps”. If we want to optimize for the best possible user experience and performance, giving up one or the other is never a good idea.
+
+The reasons are fairly straightforward. The medium by which pages are transmitted, the internet, has a theoretical speed limit. This has been memorably illustrated by the famous essay/rant “It’s the latency, stupid” by Stuart Cheshire:
+
+The distance from Stanford to Boston is 4320km.
+The speed of light in vacuum is 300 x 10^6 m/s.
+The speed of light in fibre is roughly 66% of the speed of light in vacuum.
+The speed of light in fibre is 300 x 10^6 m/s * 0.66 = 200 x 10^6 m/s.
+The one-way delay to Boston is 4320 km / 200 x 10^6 m/s = 21.6ms.
+The round-trip time to Boston and back is 43.2ms.
+The current ping time from Stanford to Boston over today’s Internet is about 85ms (…)
+So: the hardware of the Internet can currently achieve within a factor of two of the speed of light.
+
+The cited 85ms round-trip time between Boston and Stanford will certainly improve over time, and your own experiments right now might already show it. But it’s important to note that there’s a theoretical minimum of about 50ms between the two coasts.
+
+The bandwidth capacity of your users’ connections might improve noticeably, as it steadily has, but the latency needle won’t move much at all. This means that minimizing the number of roundtrips you make to display information on page is essential to great user experience and responsiveness.
+
+This becomes particularly relevant to point out considering the rise of JavaScript-driven applications that usually consist of no markup other than <script> and <link> tags beside an empty <body>. This class of application has received the name of “Single Page Applications” or “SPA”. As the name implies, there’s only one page the server consistently returns, and all the rest is figured out by your client side code.
+
+Consider the scenario where the user navigates to http://app.com/orders/ after following a link or typing in the URL. At the time your application receives and processes the request, it already has important information about what’s going to be shown on that page. It could, for example, pre-fetch the orders from the database and include them in the response. In the case of most SPAs, a blank page and a <script> tag is returned instead, and another roundtrip will be made to get the scripts contents. So that then another roundtrip can be made to get the data needed for rendering.
+
+Analysis of the HTML sent by the server for every page of a SPA in the wild
+Analysis of the HTML sent by the server for every page of a SPA in the wild
+
+At this point many developers consciously accept this tradeoff because they make sure the extra network hops happen only once for their users by sending the proper cache headers in the script and stylesheet responses. The general consensus is that it’s an acceptable tradeoff because once the bundle is loaded, you can then handle most of the user interaction (like transitions to other pages) without requesting additional pages or scripts.
+
+However, even in the presence of a cache, there’s a performance penalty when considering script parsing and evaluation time. “Is jQuery Too Big For Mobile?” describes how even for jQuery alone this could be in the order of hundreds of milliseconds for certain mobile browsers.
+
+What’s worse, usually no feedback whatsoever is given to the user while the scripts are loading. This results in a blank page displaying and then a sudden transition to a fully loaded page.
+
+Most importantly, we usually forget that the current prevailing transport of internet data (TCP) starts slowly. This pretty much guarantees that most script bundles won’t be fetched in one roundtrip, making the situation described above even worse.
+
+A TCP connection starts with an initial roundtrip for the handshake. If you’re using SSL, which happens to be important for safe script delivery, an additional two roundtrips are used (only one if the client is resuming a session). Only then can the server start sending data, but as it turns out, it does so slowly and incrementally.
+
+A congestion control mechanism called slow start is built into the TCP protocol to send the data in a growing number of segments. This has two serious implications for SPAs:
+
+Large scripts take a lot longer to download than it seems. As explained in the book “High Performance Browser Networking” by Ilya Grigorik, it takes “four roundtrips (…) and hundreds of milliseconds of latency, to reach 64 KB of throughput between the client and server”. In this example, considering a great internet connection between London and New York, it takes 225ms before TCP is able to reach the maximum packet size.
+Since this rule applies also for the initial page download, it makes the initial content that comes rendered with the page all that much more important. As Paul Irish concludes in his presentation “Delivering the Goods”, the first 14kb are crucially important. This is a helpful illustration of the amount of data the server can send in each round-trip over time:
+
+How many KB a server can send for each phase of the connection by segments.
+How many KB a server can send for each phase of the connection by segments
+
+Websites that deliver content (even if it’s only the basic layout without the data) within this window will seem extremely responsive. In fact, to many authors of fast server-side applications JavaScript is deemed unneeded or as something to be used sparingly. This bias is further strengthened if the app has a fast backend and data sources and its servers located near users (CDN).
+
+The role of the server in assisting and speeding up content presentation is certainly application-specific. The solution is not always as straightforward as “render the entire page on the server”.
+
+In some cases, parts of the page that are not essential to what the user is likely after are better left out of the initial response and fetched later by the client. Some applications, for example, opt to render the “shell” of the page to respond immediately. Then they fetch different portions of the page in parallel. This allows for great responsiveness even in a situation with slow legacy backend services. For some pages, pre-rendering the content that’s “above the fold” is also a viable option.
+
+Making a qualitative assessment of scripts and styles based on the information the server has about the the session, the user and the URL is absolutely crucial. The scripts that deal with sorting orders will obviously be more important to /orders than the logic to deal with the settings page. Maybe less intuitively, one could also make a distinction between “structural CSS” and the “skin/theme CSS”. The former might be required by the JavaScript code, so it should block, but the latter could be loaded asynchronously.
+
+A neat example of a SPA that does not incur in extra roundtrip penalties is a proof-of-concept clone of StackOverflow in 4096 bytes (which can theoretically be delivered on the first post-handshake roundtrip of a TCP connection!). It manages to pull this off at the expense of cacheability, by inlining all the assets within the response. With SPDY or HTTP/2 server push, it should be theoretically possible to deliver client code that’s cacheable in a single hop. For the time being, rendering part or all of the page on the server is the most common solution to avoiding extra roundtrips.
+
+Proof-of-concept SPA with inlined CSS and JS<br />
+that doesn’t incur in extra roundtrips
+Proof-of-concept SPA with inlined CSS and JS that doesn’t incur in extra roundtrips
+
+A flexible enough system that can share rendering code between browser and server and provides tools for progressively loading scripts and styles will probably eliminate the colloquial distinction between websites and webapps. Both are reigned by the same UX principles. A blog and a CRM are fundamentally not that different. They have URLs, navigation, they show data to the user. Even a spreadsheet application, which traditionally relies a lot more on client side functionality, first needs to show the user the data he’s interested in modifying. And doing so in the least number of network roundtrips is paramount.
+
+In my view, the major tradeoffs in performance seen in many widely deployed systems these days have to do with the progressive accumulation of complexity in the stack. Technologies like JavaScript and CSS were added over time. Their popularity increased over time as well. Only now can we appreciate the impact of the different ways they’ve been applied. Some of this is addressed by improving protocols (as shown by the ongoing enhancements seen in SPDY and QUIC), but the application layer is where most of the benefits will come from.
+
+It’s helpful to refer to some of the initial discussions around the design of the initial WWW and HTML to understand this. In particular, this mailing list thread from 1997 proposing the addition of the <img> tag to HTML. Marc Andreessen re-iterates the importance of serving information fast:
+
+“If a document has to be pieced together on the fly, it could get arbitrarily complex, and even if that were limited, we’d certainly start experiencing major hits on performance for documents structured in this way. This essentially throws the single-hop principle of WWW out the door (well, IMG does that too, but for a very specific reason and in a very limited sense) — are we sure we want to do that?”
+
 
 ## Production Topics
 * Modifying builtins like Object.prototype and Array.prototype are strictly forbidden. Modifying other builtins like Function.prototype is less dangerous but still leads to hard to debug issues in production and should be avoided.
