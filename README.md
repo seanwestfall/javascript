@@ -20,6 +20,7 @@ By Sean Westfall
 	+ Browser Compatibility
 1. [Terminology](#terminology)
 2. [Using Strict](#using-strict)
+3. [Using ES6](#useing-es6)
 3. [Syntax](#syntax)
   + [Primative Types](#primative-types)
       + [Strings]
@@ -214,6 +215,18 @@ As an example, in normal JavaScript, mistyping a variable name creates a new glo
 In normal JavaScript, a developer will not receive any error feedback assigning values to non-writable properties.
 
 In strict mode, any assignment to a non-writable property, a getter-only property, a non-existing property, a non-existing variable, or a non-existing object, will throw an error.
+
+Here is a list of changes strict enforces on your code:
+
+## Using ES6
+Throughout this guide I mention which features are apart of the future planned ES6 standard. Though, if you do use an ES6 feature, such as Symbols, or .mapreduce(), you must make a not of it so to not confuse other developers:
+````javascript
+// example
+
+// example ES6 code
+
+````
+https://6to5.github.io/
 
 ## Syntax
 
