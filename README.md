@@ -20,7 +20,7 @@ By Sean Westfall
 	+ Browser Compatibility
 1. [Terminology](#terminology)
 2. [Using Strict](#using-strict)
-3. [Using ES6](#useing-es6)
+3. [Using ES6](#using-es6)
 3. [Syntax](#syntax)
   + [Primative Types](#primative-types)
       + [Strings]
