@@ -884,8 +884,12 @@ $(this).on('listingUpdated', function(e, data) {
 }(this);
 ````
 # jQuery
+There are 182 functions in jQuery as of version 1.11. I can't cover all of it here in this guide, though keep in mind that there are other equally valid libraries out there that can do much of the same thing. jQuery is just the most popular client side scripting HTML library as of today, so no javascrpt guide would be complete without it.
 
-There are 182 functions in jquery as of version 1.11. I can't cover all of it here in this guide, especially when there are other equally valid libraries out there that can do much of the same thing. jQuery is just the most popular client side scripting HTML library as of today.
+Here are just a few generalized principles to use when writing jQuery code:
+* Don't do
+````javascript
+````
 
 ### When not to use jQuery:
 http://youmightnotneedjquery.com/
