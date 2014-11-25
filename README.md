@@ -219,7 +219,7 @@ In strict mode, any assignment to a non-writable property, a getter-only propert
 Here is a list of changes strict enforces on your code:
 
 ## Using ES6
-Throughout this guide I mention which features are apart of the future planned ES6 standard. Though, if you do use an ES6 feature, such as Symbols, or .mapreduce(), you must make a not of it so to not confuse other developers:
+Throughout this guide I mention which features are apart of the future planned ES6 standard. Though, if you do use an ES6 feature, such as Symbols, or .map(), you must make a note of it, ES6 features are still experimental and NOT a standard yet. Untill these features of official drafted in the the spec, you must let other developers know you're using them. Mention at the top of the js file, where experimental ES6 features are being used, and in the code where it is being used.
 ````javascript
 // example
 
