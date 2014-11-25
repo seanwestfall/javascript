@@ -50,6 +50,7 @@ By Sean Westfall
      + Math
      + Promises
 10. [Generators ES6] 
+     + Combined with Generators
 11. [Events]
 12. [Exceptions]
 13. [Modules]
