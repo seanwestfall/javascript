@@ -884,6 +884,13 @@ $(this).on('listingUpdated', function(e, data) {
 }(this);
 ````
 # jQuery
+
+There are 182 functions in jquery as of version 1.11. I can't cover all of it here in this guide, especially when there are other equally valid libraries out there that can do much of the same thing. jQuery is just the most popular client side scripting HTML library as of today.
+
+### When not to use jQuery:
+http://youmightnotneedjquery.com/
+
+### How to use jQuery:
 * Prefix jQuery object variables with a $.
 ````javascript
 // bad
@@ -1960,8 +1967,6 @@ It’s helpful to refer to some of the initial discussions around the design of 
 ## License
 
 (The MIT License)
-
-Copyright (c) 2014 Airbnb
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
