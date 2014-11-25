@@ -1920,7 +1920,7 @@ The bandwidth capacity of your users’ connections might improve noticeably, as
 
 This becomes particularly relevant to point out considering the rise of JavaScript-driven applications that usually consist of no markup other than \<script\> and \<link\> tags beside an empty \<body\>. This class of application has received the name of “Single Page Applications” or “SPA”. As the name implies, there’s only one page the server consistently returns, and all the rest is figured out by your client side code.
 
-Consider the scenario where the user navigates to http://app.com/orders/ after following a link or typing in the URL. At the time your application receives and processes the request, it already has important information about what’s going to be shown on that page. It could, for example, pre-fetch the orders from the database and include them in the response. In the case of most SPAs, a blank page and a <script> tag is returned instead, and another roundtrip will be made to get the scripts contents. So that then another roundtrip can be made to get the data needed for rendering.
+Consider the scenario where the user navigates to http://app.com/orders/ after following a link or typing in the URL. At the time your application receives and processes the request, it already has important information about what’s going to be shown on that page. It could, for example, pre-fetch the orders from the database and include them in the response. In the case of most SPAs, a blank page and a \<script\> tag is returned instead, and another roundtrip will be made to get the scripts contents. So that then another roundtrip can be made to get the data needed for rendering.
 
 Analysis of the HTML sent by the server for every page of a SPA in the wild
 Analysis of the HTML sent by the server for every page of a SPA in the wild
@@ -1953,7 +1953,7 @@ Making a qualitative assessment of scripts and styles based on the information t
 
 A neat example of a SPA that does not incur in extra roundtrip penalties is a proof-of-concept clone of StackOverflow in 4096 bytes (which can theoretically be delivered on the first post-handshake roundtrip of a TCP connection!). It manages to pull this off at the expense of cacheability, by inlining all the assets within the response. With SPDY or HTTP/2 server push, it should be theoretically possible to deliver client code that’s cacheable in a single hop. For the time being, rendering part or all of the page on the server is the most common solution to avoiding extra roundtrips.
 
-Proof-of-concept SPA with inlined CSS and JS<br />
+Proof-of-concept SPA with inlined CSS and JS\<br /\>
 that doesn’t incur in extra roundtrips
 Proof-of-concept SPA with inlined CSS and JS that doesn’t incur in extra roundtrips
 
