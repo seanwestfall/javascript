@@ -32,19 +32,19 @@ By Sean Westfall
            + [Properties](#properties)
          + [Arrays](#arrays)
          + [Objects](#objects)
-           + [Accessors]
-           + [Constructors]
+           + [Accessors](#accessors)
+           + [Constructors](#constructors)
        + [Other](#other)
   1. [Conditional Evaluation](#conditional-evaluation)
   1. [Type Casting & Coercion](#type-casting-&-coercion)
   1. [Naming](#naming)
   1. [Proper Spacing](#whitespaces)
   1. [Comments](#comments)
-  1. [Commonly Used Objects]
-       + Regular Expression
-       + Date
-       + Math
-       + Promises
+  1. [Commonly Used Objects](#commonly-used-objects)
+       + Regular Expression(#regular-expression)
+       + Date(#date)
+       + Math(#math)
+       + Promises(#promises)
   1. [Generators _ES6_](#generators)
        + Combined with Promises
   1. [Events](#events)
@@ -63,12 +63,12 @@ By Sean Westfall
   1. [Testing](#testing)
   1. [Considerations for Production](considerations-for-production)
   1. [Resources](#Resources)
-       + [Essential Reading]
-       + [Books Worth Reading]
-       + [Blogs Worth Following]
-       + [Linters]
-       + [Build Tools]
-       + [Other]
+       + [Essential Reading](#essential-reading)
+       + [Books Worth Reading](#books-worth-reading)
+       + [Blogs Worth Following](#blogs-worth-following)
+       + [Linters](#linters)
+       + [Build Tools](#build-tools)
+       + [Other](#other)
   1. [Performance and Memory](#Performance-and-Memory-Tuning)
   1. [Security](#secutiry)
   1. [Considerations for JS Engine Performance](#considerations-for-js-engine-performance)
@@ -80,35 +80,117 @@ By Sean Westfall
   1. [Bibliography](#bibliography)
 
 ## Official Documentation
+- [Annotated ECMAScript 5.1](http://es5.github.com/)
+- [EcmaScript Language Specification, 5.1 Edition](http://ecma-international.org/ecma-262/5.1/)
+- [EcmaScript Language Specification, ECMA-262 6th Edition *Draft*](https://people.mozilla.org/~jorendorff/es6-draft.html)
 
 **[⬆ back to top](#table-of-contents)**
 ## Terminology
+- type
+- primitive value
+- object
+- constructor
+- prototype
+- native object
+- built-in object
+- host object
+- undefined value
+- Undefined type
+- null value
+- Null type
+- Boolean value
+- Boolean type
+- Boolean object
+- String value
+- String type
+- String object
+- Number value
+- Number type
+- Number object
+- Infinity
+- NaN
+- function
+- built-in function
+- property
+- method
+- built-in method
+- attribute
+- own property
+- inherited property
 
 **[⬆ back to top](#table-of-contents)**
 ## Using Strict
+
+**[⬆ back to top](#table-of-contents)**
 ## Using ES6
+
+**[⬆ back to top](#table-of-contents)**
 ## Syntax
+
+**[⬆ back to top](#table-of-contents)**
 ## Conditional Evaluation
+
+**[⬆ back to top](#table-of-contents)**
 ## Type Casting & Coercion
+
+**[⬆ back to top](#table-of-contents)**
 ## Naming
+
+**[⬆ back to top](#table-of-contents)**
 ## Proper Spacing
+
+**[⬆ back to top](#table-of-contents)**
 ## Comments
+
+**[⬆ back to top](#table-of-contents)**
 ## Commonly Used Objects
+
+**[⬆ back to top](#table-of-contents)**
 ## Generators _ES6_
+
+**[⬆ back to top](#table-of-contents)**
 ## Events
+
+**[⬆ back to top](#table-of-contents)**
 ## Exceptions
+
+**[⬆ back to top](#table-of-contents)**
 ## Modules
+
+**[⬆ back to top](#table-of-contents)**
 ## JSON
+
+**[⬆ back to top](#table-of-contents)**
 ## jQuery
+
+**[⬆ back to top](#table-of-contents)**
 ## Bitwise Operators
+
+**[⬆ back to top](#table-of-contents)**
 ## Misc
+
+**[⬆ back to top](#table-of-contents)**
 ## Testing
+
+**[⬆ back to top](#table-of-contents)**
 ## Considerations for Production
+
+**[⬆ back to top](#table-of-contents)**
 ## Resources
+
+**[⬆ back to top](#table-of-contents)**
 ## Performance and Memory Tuning
+
+**[⬆ back to top](#table-of-contents)**
 ## Security
+
+**[⬆ back to top](#table-of-contents)**
 ## Considerations for JS Engine Performance
+
+**[⬆ back to top](#table-of-contents)**
 ## IE Issues and Compatibility
+
+**[⬆ back to top](#table-of-contents)**
 ## License
 
 (The MIT License)
@@ -137,3 +219,5 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 **[⬆ back to top](#table-of-contents)**
 
 ## Bibliography
+
+**[⬆ back to top](#table-of-contents)**
