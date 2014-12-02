@@ -1965,6 +1965,19 @@ It’s helpful to refer to some of the initial discussions around the design of 
 
 “If a document has to be pieced together on the fly, it could get arbitrarily complex, and even if that were limited, we’d certainly start experiencing major hits on performance for documents structured in this way. This essentially throws the single-hop principle of WWW out the door (well, IMG does that too, but for a very specific reason and in a very limited sense) — are we sure we want to do that?”
 
+### Security
+
+https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project
+A1 Injection
+A2 Broken Authentication and Session Management (was formerly 2010-A3)
+A3 Cross-Site Scripting (XSS) (was formerly 2010-A2)
+A4 Insecure Direct Object References
+A5 Security Misconfiguration (was formerly 2010-A6)
+A6 Sensitive Data Exposure (2010-A7 Insecure Cryptographic Storage and 2010-A9 Insufficient Transport Layer Protection were merged to form 2013-A6)
+A7 Missing Function Level Access Control (renamed/broadened from 2010-A8 Failure to Restrict URL Access)
+A8 Cross-Site Request Forgery (CSRF) (was formerly 2010-A5)
+A9 Using Components with Known Vulnerabilities (new but was part of 2010-A6 – Security Misconfiguration)
+A10 Unvalidated Redirects and Forwards
 
 ## Production Topics
 * Modifying builtins like Object.prototype and Array.prototype are strictly forbidden. Modifying other builtins like Function.prototype is less dangerous but still leads to hard to debug issues in production and should be avoided.
