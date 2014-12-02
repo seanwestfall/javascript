@@ -1,4 +1,4 @@
-# JavaScript
+JavaScript
 ============
 A Practical Style Guide to Everyday JavaScript.
 
@@ -113,7 +113,7 @@ By Sean Westfall
 
 (The MIT License)
 
-Copyright (c) 2014 Airbnb
+Copyright (c) 2014 Sean Westfall
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
