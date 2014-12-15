@@ -125,7 +125,149 @@ By Sean Westfall
 ## Using ES6
 
 **[⬆ back to top](#table-of-contents)**
-## Syntax
+## Types and Syntax
+Javascript splits all variables types into two camps, primative types and complex types:
+* (Primative)[#primative-types]
+  + string
+  + number
+  + boolean
+  + null
+  + undefined
+* (Complex)[#complex-types]
+  + object
+  + array
+  + function
+  + symbol (ES6)
+
+### Variable Declarations
+Using only one `var` per scope (function) promotes readability
+and keeps your declaration list free of clutter (also saves a few keystrokes).
+```javascript
+// Bad
+var foo = "";
+var bar = "";
+var qux;
+
+// Good
+var foo = "",
+  bar = "",
+  qux;
+
+// or..
+var // Comment on these
+foo = "",
+bar = "",
+quux;
+```
+Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
+```javascript
+// bad
+var i, len, dragonball,
+    items = getItems(),
+    goSportsTeam = true;
+
+// bad
+var i, items = getItems(),
+    dragonball,
+    goSportsTeam = true,
+    len;
+
+// good
+var items = getItems(),
+    goSportsTeam = true,
+    dragonball,
+    length,
+    i;
+```
+### Complex Types
+Complex: When you access a complex type you work on a reference to its value
+ * object
+ * array
+ * function
+ * symbol (ES6)
+````javascript
+var foo = [1, 2],
+    bar = foo;
+
+bar[0] = 9;
+````
+
+#### Objects
+
+````javascript
+var arr = [1, 2, 3];  // No space after [ or before ].
+var obj = {a: 1, b: 2, c: 3};  // No space after { or before }.
+
+// depending on the number of characters, and the length of the data (~10 char or more), 
+// consider spacing on multiple lines:
+var obj = {a:1,b:2}; // short
+var obj = {a:'item one', b:'item two'}; // short
+
+// long
+var obj = {
+  'one':'Hey I am a long line! aaaaaaaaaaaaaaaaa',
+  'two':'Hey I am a long line too! aaaaaaaaaaaaaaaaa'
+};
+````
+Matching indentation also improves readablity 
+````javascript
+// bad
+CORRECT_Object.prototype = {
+  a: 0,
+  b: 1,
+  lengthyName: 2
+};
+// good
+WRONG_Object.prototype = {
+  a          : 0,
+  b          : 1,
+  lengthyName: 2
+};
+````
+
+Object constructors don't have the same problems, but for readability and consistency object literals should be used.
+Should be written as:
+
+````javascript
+// bad
+var item = new Object();
+
+// good
+var item = {};
+````
+
+````javascript
+// bad
+var o = new Object();
+
+var o2 = new Object();
+o2.a = 0;
+o2.b = 1;
+o2.c = 2;
+o2['strange key'] = 3;
+
+// good
+var o = {};
+
+var o2 = {
+  a: 0,
+  b: 1,
+  c: 2,
+  'strange key': 3
+};
+````
+Using the `for (var key in obj)` loop is the most elegant way to go through an objects direct properties.
+Use the `obj.hasOwnProperty(key)` to only go through an object direct properties, but keep in mind
+that doing so will slow down the interation significantly.
+````javascript
+for (var key in obj) {
+  if (obj.hasOwnProperty(key)) { // only look at direct properties
+    var value = obj[key];
+    // do stuff...
+  }
+}
+`````
+
 
 **[⬆ back to top](#table-of-contents)**
 ## Conditional Evaluation
