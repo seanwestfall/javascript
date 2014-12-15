@@ -127,17 +127,33 @@ By Sean Westfall
 **[⬆ back to top](#table-of-contents)**
 ## Types and Syntax
 Javascript splits all variables types into two camps, primative types and complex types:
-* (Primative)[#primative-types]
+* [Primative](#primative-types)
   + string
   + number
   + boolean
   + null
   + undefined
-* (Complex)[#complex-types]
+When you access a primitive type you work directly on its value.
+```javascript
+var foo = 1,
+    bar = foo;
+
+bar = 9;
+
+console.log(foo, bar); // => 1, 9
+```
+* [Complex](#complex-types)
   + object
   + array
   + function
   + symbol (ES6)
+When you access a complex type you work on a reference to its value.
+```javascript
+var foo = [1, 2],
+    bar = foo;
+
+bar[0] = 9;
+```
 
 ### Variable Declarations
 Using only one `var` per scope (function) promotes readability
