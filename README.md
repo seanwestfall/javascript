@@ -177,17 +177,12 @@ By Sean Westfall
 
 **[⬆ back to top](#table-of-contents)**
 ## Resources
-# Official Documentation
-+ [Annotated ECMAScript 5.1](http://es5.github.com/)
-+ [EcmaScript Language Specification, 5.1 Edition](http://ecma-international.org/ecma-262/5.1/)
-+ [EcmaScript Language Specification, ECMA-262 6th Edition *Draft*](https://people.mozilla.org/~jorendorff/es6-draft.html)
-
-# Essential Reading
+### Essential Reading
 + http://msdn.microsoft.com/en-us/library/ie/yek4tbz0(v=vs.94).aspx
 + https://developer.mozilla.org/en-US/docs/Web/JavaScript
 + http://contribute.jquery.org/style-guide/js/
 
-# JavaScript Books Worth Reading:
+### JavaScript Books Worth Reading:
 + Secrets of the JavaScript Ninja by John Resig and Bear Bibeault
 + JavaScript: The Good Parts by Douglas Crockford
 + Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript by David Herman
@@ -196,12 +191,12 @@ By Sean Westfall
 + JavaScript Patterns by Stoyan Stefanov
 + Functional JavaScript: Introducing Functional Programming with Underscore.js by Michael Fogus
 
-# JavaScript Blogs Worth Mentioning:
+### JavaScript Blogs Worth Mentioning:
 + http://perfectionkills.com/
 + http://raganwald.com/
 + http://jlongster.com/
 
-# Other Awesome Styles Guides You Should Read
+### Other Awesome Styles Guides You Should Read
 + https://github.com/rwaldron/idiomatic.js/
 + https://github.com/airbnb/javascript
 + https://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml
