@@ -133,6 +133,7 @@ Javascript splits all variables types into two camps, primative types and comple
   + boolean
   + null
   + undefined
+
 When you access a primitive type you work directly on its value.
 ```javascript
 var foo = 1,
@@ -147,6 +148,7 @@ console.log(foo, bar); // => 1, 9
   + array
   + function
   + symbol (ES6)
+
 When you access a complex type you work on a reference to its value.
 ```javascript
 var foo = [1, 2],
