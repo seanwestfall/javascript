@@ -490,7 +490,17 @@ for (var key in obj) {
 
 **[⬆ back to top](#table-of-contents)**
 ## Naming
-* In general, use functionNamesLikeThis, variableNamesLikeThis, ClassNamesLikeThis, EnumNamesLikeThis, methodNamesLikeThis, CONSTANT_VALUES_LIKE_THIS, foo.namespaceNamesLikeThis.bar, and filenameslikethis.js.
+* In general, use 
+```javascript
+functionNamesLikeThis
+variableNamesLikeThis
+ClassNamesLikeThis
+EnumNamesLikeThis
+methodNamesLikeThis
+CONSTANT_VALUES_LIKE_THIS
+foo.namespaceNamesLikeThis.bar
+filenameslikethis.js
+```
 * Private properties and methods should be named with a trailing underscore.
 * Protected properties and methods should be named without a trailing underscore (like public ones).
 
