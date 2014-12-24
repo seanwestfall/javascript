@@ -167,6 +167,7 @@ var items = getItems(),
     i;
 ```
 
+### Variable Types
 Javascript splits all variables types into two camps, primative types and complex types:
 * [Primative](#primative-types)
   + string
