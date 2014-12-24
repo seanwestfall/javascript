@@ -199,17 +199,6 @@ bar[0] = 9;
 ```
 
 ### Complex Types
-Complex: When you access a complex type you work on a reference to its value
- * object
- * array
- * function
- * symbol (ES6)
-````javascript
-var foo = [1, 2],
-    bar = foo;
-
-bar[0] = 9;
-````
 
 #### Functions
 * Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
