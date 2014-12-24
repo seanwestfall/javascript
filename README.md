@@ -126,37 +126,6 @@ By Sean Westfall
 
 **[⬆ back to top](#table-of-contents)**
 ## Types and Syntax
-Javascript splits all variables types into two camps, primative types and complex types:
-* [Primative](#primative-types)
-  + string
-  + number
-  + boolean
-  + null
-  + undefined
-
-When you access a primitive type you work directly on its value.
-```javascript
-var foo = 1,
-    bar = foo;
-
-bar = 9;
-
-console.log(foo, bar); // => 1, 9
-```
-* [Complex](#complex-types)
-  + object
-  + array
-  + function
-  + symbol (ES6)
-
-When you access a complex type you work on a reference to its value.
-```javascript
-var foo = [1, 2],
-    bar = foo;
-
-bar[0] = 9;
-```
-
 ### Variable Declarations
 Using only one `var` per scope (function) promotes readability
 and keeps your declaration list free of clutter (also saves a few keystrokes).
@@ -197,6 +166,38 @@ var items = getItems(),
     length,
     i;
 ```
+
+Javascript splits all variables types into two camps, primative types and complex types:
+* [Primative](#primative-types)
+  + string
+  + number
+  + boolean
+  + null
+  + undefined
+
+When you access a primitive type you work directly on its value.
+```javascript
+var foo = 1,
+    bar = foo;
+
+bar = 9;
+
+console.log(foo, bar); // => 1, 9
+```
+* [Complex](#complex-types)
+  + object
+  + array
+  + function
+  + symbol (ES6)
+
+When you access a complex type you work on a reference to its value.
+```javascript
+var foo = [1, 2],
+    bar = foo;
+
+bar[0] = 9;
+```
+
 ### Complex Types
 Complex: When you access a complex type you work on a reference to its value
  * object
@@ -209,6 +210,217 @@ var foo = [1, 2],
 
 bar[0] = 9;
 ````
+
+#### Functions
+* Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
+````javascript
+// bad
+function() {
+  test();
+  console.log('doing stuff..');
+
+  //..other stuff..
+
+  var name = getName();
+
+  if (name === 'test') {
+    return false;
+  }
+
+  return name;
+}
+
+// good
+function() {
+  var name = getName();
+
+  test();
+  console.log('doing stuff..');
+
+  //..other stuff..
+
+  if (name === 'test') {
+    return false;
+  }
+
+  return name;
+}
+
+// bad
+function() {
+  var name = getName();
+
+  if (!arguments.length) {
+    return false;
+  }
+
+  return true;
+}
+
+// good
+function() {
+  if (!arguments.length) {
+    return false;
+  }
+
+  var name = getName();
+
+  return true;
+}
+````
+* Only sometimes hoisting is okay, but usually not: see below for when it's appropriate.
+
+* Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
+````javascript
+// anonymous function expression
+var anonymous = function() {
+  return true;
+};
+
+// named function expression
+var named = function named() {
+  return true;
+};
+
+// immediately-invoked function expression (IIFE)
+(function() {
+  console.log('Welcome to the Internet. Please follow me.');
+})();
+````
+* Never name a parameter arguments, this will take precedence over the arguments object that is given to every function scope. 'arguments' is a reserved word in all browsers.
+````javascript
+// bad
+function nope(name, options, arguments) {
+  // ...stuff...
+}
+
+// good
+function yup(name, options, args) {
+  // ...stuff...
+}
+````
+* ECMA-262 defines a block as a list of statements. A function declaration is not a statement.
+````javascript
+// bad
+if (currentUser) {
+  function test() {
+    console.log('Nope.');
+  }
+}
+
+// good
+var test;
+if (currentUser) {
+  test = function test() {
+    console.log('Yup.');
+  };
+}
+````
+* var statements should always be in the beginning of their respective scope (function).
+````javascript
+// Bad
+function foo() {
+
+  // some statements here
+
+  var bar = "",
+    qux;
+}
+
+// Good
+function foo() {
+  var bar = "",
+    qux;
+
+  // all statements after the variables declarations.
+}
+````
+* Name your functions. This is helpful for stack traces.
+````javascript
+// bad
+var log = function(msg) {
+  console.log(msg);
+};
+
+// good
+var log = function log(msg) {
+  console.log(msg);
+};
+````
+
+#### Arrays
+* Use Array and Object literals instead of Array and Object constructors.
+* Array constructors are error-prone due to their arguments.
+* Because of this, if someone changes the code to pass 1 argument instead of 2 arguments, the array might not have the expected length.
+* To avoid these kinds of weird cases, always use the more readable array literal.
+````javascript
+// bad
+// Length is 3.
+var a1 = new Array(x1, x2, x3);
+
+// Length is 2.
+var a2 = new Array(x1, x2);
+
+// If x1 is a number and it is a natural number the length will be x1.
+// If x1 is a number but not a natural number this will throw an exception.
+// Otherwise the array will have one element with x1 as its value.
+var a3 = new Array(x1);
+
+// Length is 0.
+var a4 = new Array();
+
+// good
+var a = [x1, x2, x3];
+var a2 = [x1, x2];
+var a3 = [x1];
+var a4 = [];
+````
+
+````javascript
+// bad
+var items = new Array();
+
+// good
+var items = [];
+````
+* Use [Array.prototype.push()](#https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push) to add elements to the end of an array:
+````javascript
+var someStack = [];
+// bad
+someStack[someStack.length] = 'abracadabra';
+// good
+someStack.push('abracadabra');
+````
+* Likewise use [Array.prototype.unshift()](#https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift) to add elements to the beginning of an array:
+* but don't forget that the function returns the length of the array, not the new array
+````javascript
+someStack.unshift('abracadabra');
+````
+* Use [Array.prototype.splice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) to copy and remove elements from an array.
+* Here's how to properly copy and array
+````javascript
+var len = items.length,
+    itemsCopy = [],
+    i;
+// bad
+for (i = 0; i < len; i++) {
+  itemsCopy[i] = items[i];
+}
+// good
+itemsCopy = items.slice();
+````
+
+Array.prototype.every()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every
+
+Use every when checking the condition of an array.
+
+or use 
+
+Array.prototype.some()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
+
+When checking every element in an array for a condition.
 
 #### Objects
 
