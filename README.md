@@ -337,10 +337,7 @@ var log = function log(msg) {
 ````
 
 #### Arrays
-* Use Array and Object literals instead of Array and Object constructors.
-* Array constructors are error-prone due to their arguments.
-* Because of this, if someone changes the code to pass 1 argument instead of 2 arguments, the array might not have the expected length.
-* To avoid these kinds of weird cases, always use the more readable array literal.
+* Use Array and Object literals instead of Array and Object constructors. Array constructors are error-prone due to their arguments, because of this, if someone changes the code to pass 1 argument instead of 2 arguments, the array might not have the expected length. To avoid these kinds of weird cases, always use the more readable array literal.
 ````javascript
 // bad
 // Length is 3.
@@ -398,15 +395,13 @@ for (i = 0; i < len; i++) {
 itemsCopy = items.slice();
 ````
 
-Array.prototype.every()
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every
+* [Array.prototype.every()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every)
 
 Use `every()` when checking the condition of an array.
 
-or use 
+or use `some()`
 
-Array.prototype.some()
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
+* [Array.prototype.some()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)
 
 When checking every element in an array for a condition.
 
@@ -443,7 +438,7 @@ WRONG_Object.prototype = {
 };
 ````
 
-Object constructors don't have the same problems, but for readability and consistency object literals should be used.
+* Object constructors don't have the same problems, but for readability and consistency object literals should be used.
 Should be written as:
 
 ````javascript
