@@ -495,6 +495,111 @@ for (var key in obj) {
 
 **[⬆ back to top](#table-of-contents)**
 ## Naming
+* In general, use functionNamesLikeThis, variableNamesLikeThis, ClassNamesLikeThis, EnumNamesLikeThis, methodNamesLikeThis, CONSTANT_VALUES_LIKE_THIS, foo.namespaceNamesLikeThis.bar, and filenameslikethis.js.
+* Private properties and methods should be named with a trailing underscore.
+* Protected properties and methods should be named without a trailing underscore (like public ones).
+
+* From the Google Closure Library Style Guide
+```javascript
+functionNamesLikeThis;
+variableNamesLikeThis;
+ConstructorNamesLikeThis;
+EnumNamesLikeThis;
+methodNamesLikeThis;
+SYMBOLIC_CONSTANTS_LIKE_THIS;
+```
+
+// Naming strings
+```javascript
+`dog` is a string
+```
+
+// Naming arrays
+```javascript
+`dogs` is an array of `dog` strings
+```
+
+// Naming functions, objects, instances, etc
+
+camelCase; function and var declarations
+* Use camelCase when naming objects, functions, and instances
+```javascript
+// bad
+var OBJEcttsssss = {};
+var this_is_my_object = {};
+function c() {}
+var u = new user({
+  name: 'Bob Parr'
+});
+
+// good
+var thisIsMyObject = {};
+function thisIsMyFunction() {}
+var user = new User({
+  name: 'Bob Parr'
+});
+```
+// Naming constructors, prototypes, etc.
+
+PascalCase; constructor function
+```javascript
+// bad
+function user(options) {
+  this.name = options.name;
+}
+
+var bad = new user({
+  name: 'nope'
+});
+
+// good
+function User(options) {
+  this.name = options.name;
+}
+
+var good = new User({
+  name: 'yup'
+});
+```
+* Use a leading underscore _ when naming private properties
+```javascript
+// bad
+this.__firstName__ = 'Panda';
+this.firstName_ = 'Panda';
+
+// good
+this._firstName = 'Panda';
+```
+* When saving a reference to this use _this.
+```javascript
+// bad
+function() {
+  var self = this;
+  return function() {
+    console.log(self);
+  };
+}
+
+// bad
+function() {
+  var that = this;
+  return function() {
+    console.log(that);
+  };
+}
+
+// good
+function() {
+  var _this = this;
+  return function() {
+    console.log(_this);
+  };
+}
+
+// Naming regular expressions
+
+rDesc = //;
+```
 
 **[⬆ back to top](#table-of-contents)**
 ## Proper Spacing
