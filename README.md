@@ -256,6 +256,23 @@ function() {
 
   return true;
 }
+
+// Bad
+function foo() {
+
+  // some statements here
+
+  var bar = "",
+    qux;
+}
+
+// Good
+function foo() {
+  var bar = "",
+    qux;
+
+  // all statements after the variables declarations.
+}
 ````
 * Only sometimes hoisting is okay, but usually not: see below for when it's appropriate.
 
@@ -303,25 +320,6 @@ if (currentUser) {
   test = function test() {
     console.log('Yup.');
   };
-}
-````
-* var statements should always be in the beginning of their respective scope (function).
-````javascript
-// Bad
-function foo() {
-
-  // some statements here
-
-  var bar = "",
-    qux;
-}
-
-// Good
-function foo() {
-  var bar = "",
-    qux;
-
-  // all statements after the variables declarations.
 }
 ````
 * Name your functions. This is helpful for stack traces.
@@ -402,7 +400,7 @@ itemsCopy = items.slice();
 Array.prototype.every()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every
 
-Use every when checking the condition of an array.
+Use `every()` when checking the condition of an array.
 
 or use 
 
