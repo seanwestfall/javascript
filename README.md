@@ -514,17 +514,17 @@ methodNamesLikeThis;
 SYMBOLIC_CONSTANTS_LIKE_THIS;
 ```
 
-// Naming strings
+* Naming strings
 ```javascript
 `dog` is a string
 ```
 
-// Naming arrays
+* Naming arrays
 ```javascript
 `dogs` is an array of `dog` strings
 ```
 
-// Naming functions, objects, instances, etc
+* Naming functions, objects, instances, etc
 
 camelCase; function and var declarations
 * Use camelCase when naming objects, functions, and instances
@@ -544,7 +544,7 @@ var user = new User({
   name: 'Bob Parr'
 });
 ```
-// Naming constructors, prototypes, etc.
+* Naming constructors, prototypes, etc.
 
 PascalCase; constructor function
 ```javascript
