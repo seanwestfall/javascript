@@ -608,9 +608,229 @@ rDesc = //;
 
 **[⬆ back to top](#table-of-contents)**
 ## Proper Spacing
+* Use soft tabs set to 2 spaces. Never mix tabs and spaces.
+````javascript
+// bad
+function() {
+∙∙∙∙var name;
+}
+
+// bad
+function() {
+∙var name;
+}
+
+// good
+function() {
+∙∙var name;
+}
+````
+* Place 1 space before the leading brace.
+````javascript
+// bad
+function test(){
+  console.log('test');
+}
+
+// good
+function test() {
+  console.log('test');
+}
+
+// bad
+dog.set('attr',{
+  age: '1 year',
+  breed: 'Bernese Mountain Dog'
+});
+
+// good
+dog.set('attr', {
+  age: '1 year',
+  breed: 'Bernese Mountain Dog'
+});
+````
+* Set off operators with spaces.
+````javascript
+// bad
+var x=y+5;
+
+// good
+var x = y + 5;
+````
+* End files with a single newline character.
+````javascript
+// bad
+(function(global) {
+  // ...stuff...
+})(this);
+
+// bad
+(function(global) {
+  // ...stuff...
+})(this);↵
+↵
+
+// good
+(function(global) {
+  // ...stuff...
+})(this);↵
+````
+
+* Use indentation when making long method chains.
+````javascript
+// bad
+$('#items').find('.selected').highlight().end().find('.open').updateCount();
+
+// good
+$('#items')
+  .find('.selected')
+    .highlight()
+    .end()
+  .find('.open')
+    .updateCount();
+
+// bad
+var leds = stage.selectAll('.led').data(data).enter().append('svg:svg').class('led', true)
+    .attr('width',  (radius + margin) * 2).append('svg:g')
+    .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
+    .call(tron.led);
+
+// good
+var leds = stage.selectAll('.led')
+    .data(data)
+  .enter().append('svg:svg')
+    .class('led', true)
+    .attr('width',  (radius + margin) * 2)
+  .append('svg:g')
+    .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
+    .call(tron.led);
+````
 
 **[⬆ back to top](#table-of-contents)**
 ## Comments
+* Comments are always preceded by a blank line. Comments start with a capital first letter, but don't require a period at the end, unless you're writing full sentences. There must be a single space between the comment token and the comment text.
+
+Single line comments go over the line they refer to:
+````javascript
+// We need an explicit "bar", because later in the code foo is checked.
+var foo = "bar";
+ 
+// Even long comments that span
+// multiple lines use the single
+// line comment form.
+````
+* Inline comments are allowed as an exception when used to annotate special arguments in formal parameter lists or when needed to support a specific development tool:
+````javascript
+function foo( types, selector, data, fn, /* INTERNAL */ one ) {
+    // Do stuff
+}
+````
+
+* Use /** ... */ for multiline comments. Include a description, specify types and values for all parameters and return values.
+````javascript
+// bad
+// make() returns a new element
+// based on the passed in tag name
+//
+// @param <String> tag
+// @return <Element> element
+function make(tag) {
+
+  // ...stuff...
+
+  return element;
+}
+
+// good
+/**
+ * make() returns a new element
+ * based on the passed in tag name
+ *
+ * @param <String> tag
+ * @return <Element> element
+ */
+function make(tag) {
+
+  // ...stuff...
+
+  return element;
+}
+````
+* Use // for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment.
+````javascript
+// bad
+var active = true;  // is current tab
+
+// good
+// is current tab
+var active = true;
+
+// bad
+function getType() {
+  console.log('fetching type...');
+  // set the default type to 'no type'
+  var type = this._type || 'no type';
+
+  return type;
+}
+
+// good
+function getType() {
+  console.log('fetching type...');
+
+  // set the default type to 'no type'
+  var type = this._type || 'no type';
+
+  return type;
+}
+````
+* Prefixing your comments with FIXME or TODO helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are FIXME -- need to figure this out or TODO -- need to implement.
+* Use // FIXME: to annotate problems
+````javascript
+function Calculator() {
+
+  // FIXME: shouldn't use a global here
+  total = 0;
+
+  return this;
+}
+````
+* Use // TODO: to annotate solutions to problems
+````javascript
+function Calculator() {
+
+  // TODO: total should be configurable by an options param
+  this.total = 0;
+
+  return this;
+}
+````
+
+The @const annotation on a variable or property implies that it is not overwritable. This is enforced by the compiler at build time. This behavior is consistent with the const keyword (which we do not use due to the lack of support in Internet Explorer).
+
+A @const annotation on a method additionally implies that the method cannot not be overridden in subclasses.
+
+A @const annotation on a constructor implies the class cannot be subclassed (akin to final in Java).
+````javascript
+\\ good
+/**
+ * Request timeout in milliseconds.
+ * @type {number}
+ */
+goog.example.TIMEOUT_IN_MILLISECONDS = 60;
+
+/**
+ * Map of URL to response string.
+ * @const
+ */
+MyClass.fetchedUrlCache_ = new goog.structs.Map();
+/**
+ * Class that cannot be subclassed.
+ * @const
+ * @constructor
+ */
+sloth.MyFinalClass = function() {};
+````
 
 **[⬆ back to top](#table-of-contents)**
 ## Commonly Used Objects
