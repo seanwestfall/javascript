@@ -633,17 +633,15 @@ A. Actual Types
 
 B. Coerced Types
 
-    Consider the implications of the following...
+Consider the implications of the following...
 
-    Given this HTML:
+Given this HTML:
 
-    ```html
+```html
+<input type="text" id="foo-input" value="1">
+```
 
-    <input type="text" id="foo-input" value="1">
-
-    ```
-
-    ```javascript
+```javascript
 
     // 3.B.1.1
 
@@ -688,11 +686,11 @@ B. Coerced Types
     }
 
     // `importantTask()` will be called
-    ```
+```
 
     Here are some common cases along with coercions:
     
-    ```javascript
+```javascript
 
     // 3.B.2.1
 
@@ -726,11 +724,9 @@ B. Coerced Types
 
     bool + "";
     // "false"
-    ```
+```
     
-    ```javascript
-    // 3.B.2.2
-
+```javascript
     var number = 1,
       string = "1",
       bool = true;
@@ -755,11 +751,9 @@ B. Coerced Types
 
     bool === !!string;
     // true
-    ```
+```
 
-    ```javascript
-    // 3.B.2.3
-
+```javascript
     var array = [ "a", "b", "c" ];
 
     !!~array.indexOf("a");
@@ -781,12 +775,9 @@ B. Coerced Types
     if ( array.indexOf( "a" ) >= 0 ) {
       // ...
     }
-    ```
+```
 
-    ```javascript
-    // 3.B.2.4
-
-
+```javascript
     var num = 2.5;
 
     parseInt( num, 10 );
@@ -820,7 +811,7 @@ B. Coerced Types
     neg >>> 0;
 
     // Will result in 4294967294
-    ```
+```
 
 // Type coercion and evaluation notes
 ````javascript
