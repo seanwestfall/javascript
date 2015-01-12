@@ -1254,7 +1254,25 @@ sloth.MyFinalClass = function() {};
 
 **[⬆ back to top](#table-of-contents)**
 ## IE Issues and Compatibility
+These are known issues with specific popular web browsers:
 
+*All Browsers*
+- Combining overflow: hidden and CSS transforms in z-space causes unexpected results. Unfortunately, this is a bug common in the majority of currently available browser implementations. The inclusion of overflow: hidden causes the browser to not interpret z depth correctly when a perspective is set. This issue is referenced on StackOverflow and is blogged about here.
+
+- Frame-rate in the browser will take a serious hit when semi-transparent windows lie over them. Be careful when organizing the windows on your desktop, as this can lead to very confusing performance drops.
+
+*Chrome*
+
+*Firefox*
+
+*Safari*
+- Garbage collection in Safari tends to be more pronouced. If an application is performant in Chrome and Firefox but not on Safari, it may be fixable by having more intelligent memory allocation.
+
+*iOS7 iPad*
+- iPads that are running iOS7 miscalculate window.innerHeight when they are in landscape orientation. This poses issues for developers relying on the window's size for laying-out components. This issue is referenced on StackOverflow.
+
+*Android*
+- 
 **[⬆ back to top](#table-of-contents)**
 ## License
 
