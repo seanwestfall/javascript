@@ -21,12 +21,11 @@ By Sean Westfall
   1. [Using ES6](#using-es6)
   1. [Syntax](#syntax)
        + [Primative Types](#primative-types)
-         + [Strings](#strings)
-         + [Numbers](#numbers)
-         + [Booleans](#booleans)
-         + [Undefined](#undefined)
-         + [Null](#null)
-         + [Symbol _ES6_](#Symbol)
+         + Strings
+         + Numbers
+         + Booleans
+         + Undefined
+         + Null
        + [Complex Types](#complex-types)
          + [Functions](#functions)
            + [Properties](#properties)
