@@ -86,40 +86,67 @@ By Sean Westfall
 
 **[⬆ back to top](#table-of-contents)**
 ## Terminology
-- type: set of data value.
-- primitive value: member of one of the types Undefined, Null, Boolean, Number, or String.
-- object: member of the type Object.
-- constructor: Function object that creates and initialises objects.
-- prototype: object that provides shared properties for other objects.
-- native object: object in an ECMAScript implementation whose semantics are fully defined by this specification rather than by the host environment.
-- built-in object: object supplied by an ECMAScript implementation, independent of the host environment, that is present at the start of the execution of an ECMAScript program.
-- host object: object supplied by the host environment to complete the execution environment of ECMAScript.
-- undefined value: primitive value used when a variable has not been assigned a value.
-- Undefined type: type whose sole value is the undefined value.
-- null value: primitive value that represents the intentional absence of any object value.
-- Null type: type whose sole value is the null value.
-- Boolean value: member of the Boolean type. There are only two Boolean values, true and false.
-- Boolean type: type consisting of the primitive values true and false.
-- Boolean object: member of the Object type that is an instance of the standard built-in Boolean constructor.
-- String value: primitive value that is a finite ordered sequence of zero or more 16-bit unsigned integer.
-- String type: set of all possible String values.
-- String object: member of the Object type that is an instance of the standard built-in String constructor.
-- Number value: primitive value corresponding to a double-precision 64-bit binary format IEEE 754 value.
-- Number type: set of all possible Number values including the special “Not-a-Number” (NaN) values, positive infinity, and negative infinity.
-- Number object: member of the Object type that is an instance of the standard built-in Number constructor.
-- Infinity: Number value that is the positive infinite Number value.
-- NaN: Number value that is a IEEE 754 “Not-a-Number” value.
-- function: member of the Object type that is an instance of the standard built-in Function constructor and that may be invoked as a subroutine.
-- built-in function: built-in object that is a function.
-- property: association between a name and a value that is a part of an object.
-- method: function that is the value of a property.
-- built-in method: method that is a built-in function. Sandard built-in methods are defined in the ECMA specification, and an ECMAScript implementation may specify and provide other additional built-in methods.
-- attribute: internal value that defines some characteristic of a property.
-- own property: property that is directly contained by its object.
-- inherited property: property of an object that is not an own property but is a property (either own or inherited) of the object’s prototype.
+- *Type*: set of data value.
+- *Primitive Value*: member of one of the types Undefined, Null, Boolean, Number, or String.
+- *Object*: member of the type Object.
+- *Constructor*: Function object that creates and initialises objects.
+- *Prototype*: object that provides shared properties for other objects.
+- *Native Object*: object in an ECMAScript implementation whose semantics are fully defined by this specification rather than by the host environment.
+- *Built-in Object*: object supplied by an ECMAScript implementation, independent of the host environment, that is present at the start of the execution of an ECMAScript program.
+- *Host Object*: object supplied by the host environment to complete the execution environment of ECMAScript.
+- *Undefined Value*: primitive value used when a variable has not been assigned a value.
+- *Undefined Type*: type whose sole value is the undefined value.
+- *Null value*: primitive value that represents the intentional absence of any object value.
+- *Null Type*: type whose sole value is the null value.
+- *Boolean Value*: member of the Boolean type. There are only two Boolean values, true and false.
+- *Boolean Type*: type consisting of the primitive values true and false.
+- *Boolean Object*: member of the Object type that is an instance of the standard built-in Boolean constructor.
+- *String Value*: primitive value that is a finite ordered sequence of zero or more 16-bit unsigned integer.
+- *String Type*: set of all possible String values.
+- *String Object*: member of the Object type that is an instance of the standard built-in String constructor.
+- *Number Value*: primitive value corresponding to a double-precision 64-bit binary format IEEE 754 value.
+- *Number Type*: set of all possible Number values including the special “Not-a-Number” (NaN) values, positive infinity, and negative infinity.
+- *Number Object*: member of the Object type that is an instance of the standard built-in Number constructor.
+- *Infinity*: Number value that is the positive infinite Number value.
+- *NaN*: Number value that is a IEEE 754 “Not-a-Number” value.
+- *Function*: member of the Object type that is an instance of the standard built-in Function constructor and that may be invoked as a subroutine.
+- *Built-in Function*: built-in object that is a function.
+- *Property*: association between a name and a value that is a part of an object.
+- *Method*: function that is the value of a property.
+- *Built-in Method*: method that is a built-in function. Sandard built-in methods are defined in the ECMA specification, and an ECMAScript implementation may specify and provide other additional built-in methods.
+- *Attribute*: internal value that defines some characteristic of a property.
+- *Own Property*: property that is directly contained by its object.
+- *Inherited Property*: property of an object that is not an own property but is a property (either own or inherited) of the object’s prototype.
 
 **[⬆ back to top](#table-of-contents)**
 ## Using Strict
+Strict mode changes both syntax and runtime behavior. Changes generally fall into these categories: 
+- Changes converting mistakes into errors (as syntax errors or at runtime), 
+- Changes simplifying how the particular variable for a given use of a name is computed, 
+- Changes simplifying eval and arguments, 
+- Changes making it easier to write "secure" JavaScript, and changes anticipating future ECMAScript evolution.
+Strict mode is declared by adding "use strict"; to the beginning of a JavaScript file, or a JavaScript function. Declared at the beginning of a JavaScript file, it has global scope (all code will execute in strict mode). Declared inside a function, it has local scope (only the code inside the function is in strict mode).
+
+Specifically Strict mode does:
+- Strict mode makes it impossible to accidentally create global variables.
+- Strict mode makes assignments which would otherwise silently fail throw an exception. For example, NaN is a non-writable global variable. In normal code assigning to NaN does nothing; assigning to NaN throws an exception.
+- Strict mode makes attempts to delete undeletable properties throw.
+- Strict mode requires that all properties named in an object literal be unique. 
+- Strict mode requires that function parameter names be unique. In normal code the last duplicated argument hides previous identically-named arguments.
+- Strict mode forbids octal syntax.
+- Strict mode prohibits with.
+- The `eval` of strict mode code does not introduce new variables into the surrounding scope.
+- Strict mode forbids deleting plain names.
+- The names eval and arguments can't be bound or assigned in language syntax. 
+- Strict mode code doesn't alias properties of arguments objects created within it.
+- `arguments.callee` is no longer supported.
+- The value passed as this to a function in strict mode is not forced into being an object.
+- In strict mode it's no longer possible to "walk" the JavaScript stack via commonly-implemented extensions to ECMAScript.
+- Arguments for strict mode functions no longer provide access to the corresponding function call's variables.
+- In strict mode a short list of identifiers become reserved keywords. These words are implements, interface, let, package, private, protected, public, static, and yield. 
+- Strict mode prohibits function statements not at the top level of a script or function. 
+
+Use strict mode consistently, don't mix and match strict mode within a script -- since using strict mode turns javascript into a very different language, and would therefore be like mixing two languages into one.
 
 **[⬆ back to top](#table-of-contents)**
 ## Using ES6
