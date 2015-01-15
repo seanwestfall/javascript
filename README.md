@@ -19,7 +19,8 @@ By Sean Westfall
   1. [Terminology](#terminology)
   1. [Using Strict](#using-strict)
   1. [Using ES6](#using-es6)
-  1. [Syntax](#syntax)
+  1. [Syntax/Types](#syntax)
+       + [Variable Declarations](#variable-declarations)
        + [Primative Types](#primative-types)
          + Strings
          + Numbers
