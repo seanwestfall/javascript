@@ -149,6 +149,9 @@ Use strict mode consistently, don't mix and match strict mode within a script --
 
 **[⬆ back to top](#table-of-contents)**
 ## Using ES6
+When using ES6 features, specifically mark where in your code you'll be using new ES6 features. ES6 code can confuse other developers, since they are only purposed newer features of the ECMA script standard, and yet to be includied officially.
+
+Use 6to5 to convert ES6 javascript to ES5: [https://6to5.org/](https://6to5.org/)
 
 **[⬆ back to top](#table-of-contents)**
 ## Types and Syntax
