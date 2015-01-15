@@ -86,37 +86,37 @@ By Sean Westfall
 
 **[⬆ back to top](#table-of-contents)**
 ## Terminology
-- type
-- primitive value
-- object
-- constructor
-- prototype
-- native object
-- built-in object
-- host object
-- undefined value
-- Undefined type
-- null value
-- Null type
-- Boolean value
-- Boolean type
-- Boolean object
-- String value
-- String type
-- String object
-- Number value
-- Number type
-- Number object
-- Infinity
-- NaN
-- function
-- built-in function
-- property
-- method
-- built-in method
-- attribute
-- own property
-- inherited property
+- type: set of data value.
+- primitive value: member of one of the types Undefined, Null, Boolean, Number, or String.
+- object: member of the type Object.
+- constructor: Function object that creates and initialises objects.
+- prototype: object that provides shared properties for other objects.
+- native object: object in an ECMAScript implementation whose semantics are fully defined by this specification rather than by the host environment.
+- built-in object: object supplied by an ECMAScript implementation, independent of the host environment, that is present at the start of the execution of an ECMAScript program.
+- host object: object supplied by the host environment to complete the execution environment of ECMAScript.
+- undefined value: primitive value used when a variable has not been assigned a value.
+- Undefined type: type whose sole value is the undefined value.
+- null value: primitive value that represents the intentional absence of any object value.
+- Null type: type whose sole value is the null value.
+- Boolean value: member of the Boolean type. There are only two Boolean values, true and false.
+- Boolean type: type consisting of the primitive values true and false.
+- Boolean object: member of the Object type that is an instance of the standard built-in Boolean constructor.
+- String value: primitive value that is a finite ordered sequence of zero or more 16-bit unsigned integer.
+- String type: set of all possible String values.
+- String object: member of the Object type that is an instance of the standard built-in String constructor.
+- Number value: primitive value corresponding to a double-precision 64-bit binary format IEEE 754 value.
+- Number type: set of all possible Number values including the special “Not-a-Number” (NaN) values, positive infinity, and negative infinity.
+- Number object: member of the Object type that is an instance of the standard built-in Number constructor.
+- Infinity: Number value that is the positive infinite Number value.
+- NaN: Number value that is a IEEE 754 “Not-a-Number” value.
+- function: member of the Object type that is an instance of the standard built-in Function constructor and that may be invoked as a subroutine.
+- built-in function: built-in object that is a function.
+- property: association between a name and a value that is a part of an object.
+- method: function that is the value of a property.
+- built-in method: method that is a built-in function. Sandard built-in methods are defined in the ECMA specification, and an ECMAScript implementation may specify and provide other additional built-in methods.
+- attribute: internal value that defines some characteristic of a property.
+- own property: property that is directly contained by its object.
+- inherited property: property of an object that is not an own property but is a property (either own or inherited) of the object’s prototype.
 
 **[⬆ back to top](#table-of-contents)**
 ## Using Strict
