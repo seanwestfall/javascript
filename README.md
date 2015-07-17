@@ -1303,7 +1303,7 @@ These are known issues with specific popular web browsers:
 
 (The MIT License)
 
-Copyright (c) 2014 Sean Westfall
+Copyright (c) 2015 Sean Westfall
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
