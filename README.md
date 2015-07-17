@@ -18,7 +18,6 @@ By Sean Westfall
        + [Browser Compatibility](#browser-compatibility)
   1. [Terminology](#terminology)
   1. [Using Strict](#using-strict)
-  1. [Using ES6](#using-es6)
   1. [Syntax/Types](#syntax)
        + [Variable Declarations](#variable-declarations)
        + [Primative Types](#primative-types)
@@ -35,6 +34,7 @@ By Sean Westfall
            + [Accessors](#accessors)
            + [Constructors](#constructors)
        + [Other](#other)
+  1. [Scoping](#scoping)
   1. [Conditional Evaluation](#conditional-evaluation)
   1. [Type Casting & Coercion](#type-casting-&-coercion)
   1. [Naming](#naming)
@@ -45,7 +45,7 @@ By Sean Westfall
        + [Date](#date)
        + [Math](#math)
        + [Promises](#promises)
-  1. [Generators _ES6_](#generators)
+  1. [Generators](#generators)
        + [Combined with Promises](#combined-with-promises)
   1. [Events](#events)
   1. [Exceptions](#exceptions)
@@ -60,6 +60,7 @@ By Sean Westfall
        + [Semicolons](#semicolons)
        + [Anonymous Functions](#anonymous-functions)
        + [Eval](#eval)
+       + [Closures](#closures)
   1. [Testing](#testing)
   1. [Considerations for Production](considerations-for-production)
   1. [Resources](#Resources)
@@ -80,9 +81,7 @@ By Sean Westfall
   1. [Bibliography](#bibliography)
 
 ## Official Documentation
-- [Annotated ECMAScript 5.1](http://es5.github.com/)
-- [EcmaScript Language Specification, 5.1 Edition](http://ecma-international.org/ecma-262/5.1/)
-- [EcmaScript Language Specification, ECMA-262 6th Edition *Draft*](https://people.mozilla.org/~jorendorff/es6-draft.html)
+- [EcmaScript Language Specification, 6 Edition](http://www.ecma-international.org/ecma-262/6.0/index.html)
 
 **[⬆ back to top](#table-of-contents)**
 ## Terminology
@@ -149,10 +148,6 @@ Specifically Strict mode does:
 Use strict mode consistently, don't mix and match strict mode within a script -- since using strict mode turns javascript into a very different language, and would therefore be like mixing two languages into one.
 
 **[⬆ back to top](#table-of-contents)**
-## Using ES6
-When using ES6 features, specifically mark where in your code you'll be using new ES6 features. ES6 code can confuse other developers, since they are only purposed newer features of the ECMA script standard, and yet to be includied officially.
-
-Use 6to5 to convert ES6 javascript to ES5: [https://6to5.org/](https://6to5.org/)
 
 **[⬆ back to top](#table-of-contents)**
 ## Types and Syntax
